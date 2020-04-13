@@ -1,0 +1,40 @@
+
+
+
+div{
+    position: relative;
+}
+input.main {
+    padding: 15px;
+    border-radius: 3px;
+    outline: none;
+    border: .5px solid var(--secondery);
+    transition: all .3s;
+    font-size: 18px; 
+    width: 100%;
+    position: relative;
+}
+
+ input.main:active,input:focus{
+    border-top: .5px solid var(--secondery);
+    border-left: .5px solid var(--secondery);
+    border-right: .5px solid var(--secondery);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+}
+
+input.main::placeholder {
+    font-size: 18px;
+}
+
+.icon{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+  
+    cursor: pointer;
+    opacity: .7;
+    font-size: 20px;
+}
+
+
+

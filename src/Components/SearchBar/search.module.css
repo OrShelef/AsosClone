@@ -1,0 +1,95 @@
+
+div {
+    width: 100%;
+}
+input.search_input {
+    padding: 15px;
+    
+    outline: none;
+    border: .5px solid var(--secondery);
+    transition: all .3s;
+    font-size: 18px; 
+    width: 100%;
+    position: relative;
+}
+div>i.icon{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 24px;
+  
+    border-radius: 50%;
+    padding: 14px;
+    transition: all .3s;
+}
+
+.search_input{
+    border-radius: 100px;
+    transition: all .3s;
+}
+.search_input:focus{
+    border: 2px solid #26c6da;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+}
+.search_input::placeholder{
+    opacity: .6;
+    color: var(--primary);
+}
+
+
+.close_icon{
+    font-size: 17px;
+    position: absolute;
+    top: 50%;
+    right: 65px;
+    transform: translateY(-50%);
+    color: black;
+    animation: fadeInAndSlide .3s;
+    cursor:pointer;
+    z-index: 5;
+}
+
+@keyframes fadeInAndSlide{
+    0%{
+        opacity: 0;
+        transform: translate(100%,-50%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0,-50%);  
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+      
+    }
+
+    100%{
+        opacity: 1;
+      
+    }
+}
+.active{
+    background-color: royalblue;
+    color: white;
+}
+
+.backdrop{
+    position: fixed;
+   
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .5);
+    animation:fadeIn .6s;
+}
+
+.backdrop+.search_input
+{
+    z-index: 4;
+}

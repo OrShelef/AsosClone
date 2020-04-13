@@ -1,0 +1,93 @@
+
+.main{
+    position: relative;
+    
+}
+
+.menu_open{
+    background-color: var(--surface);
+    width: 80%;
+    margin: 0 auto;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.menu{
+    background-color: var(--primary-light);
+    padding: 0 10%;
+}
+
+.menu>ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu>ul li{
+    padding:1.8rem;
+    font-size: 2.4rem;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: all .3s;
+  
+}
+
+.menu>ul li:first-child{
+   background-color: #d32f2f;
+   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  
+}
+
+.menu>ul li:hover,.active{
+    background-color: var(--surface);
+   
+}
+.active a{
+    color:var(--primary-light)
+}
+
+.container {
+    background-color: var(--primary);
+    padding: 0 10%;
+    position: relative;
+
+}
+
+.container div:not(:last-child) {
+   margin-right: 20px;
+}
+
+.logo {
+   
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+
+
+.flat_buttons {
+    max-width: 30%;
+    width: 100%;
+    
+}
+
+.flat_buttons *{
+    max-width: 33%;
+}
+
+.search_bar {
+    max-width: 55%;
+    width: 100%;
+    align-self: center;
+}
+
+
+
+.icon_buttons {
+    max-width: 15%;
+    width: 100%;
+}

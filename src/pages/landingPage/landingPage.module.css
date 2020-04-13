@@ -1,0 +1,41 @@
+.main {
+    position: relative;
+    place-content: center center;
+    text-align: center;
+    height: 100vh;
+}
+
+.video{
+position: absolute;
+height: 100%;
+object-fit: cover;
+width: 100%;
+}
+
+.title {
+    font-size: 6rem;
+    line-height: 1.5rem;
+    letter-spacing: 1rem;
+    font-weight: 700;
+    padding: 2rem;
+    color: var(--foreground);
+    z-index: 2;
+}
+
+.subTitle {
+    color: var(--foreground);
+    line-height: 1rem;
+    font-size: 1.8rem;
+    padding: 3rem;
+    z-index: 2;
+
+}
+
+.buttons {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.buttons :not(:last-child) {
+    margin-right: 3rem;
+}

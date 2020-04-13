@@ -1,0 +1,50 @@
+
+
+
+.checkbox {
+    margin-top: 10px;
+    position: relative;
+    
+}
+.checkbox label {
+    margin-left: 10px;
+    align-self: center;
+    padding: 0;
+}
+.checkbox>input{
+    visibility: hidden;
+    position: absolute;
+}
+
+.checkbox-container{
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    position: relative;
+    align-self: center;
+}
+
+.animate{
+    animation: FadeIn .25s;
+}
+
+@keyframes FadeIn{
+    0%
+    {
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(0);
+    }
+    80%
+    {
+        transform: translate(-50%,-50%) scale(1.2);
+
+    }
+    100%
+    {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+
+    }
+}
