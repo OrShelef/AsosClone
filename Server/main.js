@@ -7,7 +7,7 @@ const cors=require('cors')
 const port = 3333
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://admin:admin@cluster0-daweo.mongodb.net/test?retryWrites=true&w=majority";
-
+const api_url='https://simplescraper.io/api/6c6Sziukbi4h7AgW7Gd7?apikey=Ui0mBkg76NeBDR9NUG04cz5X5SuVms5H&limit=20'
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -46,7 +46,6 @@ app.post('/api/v1/signUp',(req,res)=>
     
    
 });
-
 
 
 

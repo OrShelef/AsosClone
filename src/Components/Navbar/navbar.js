@@ -5,6 +5,8 @@ import SearchBar from '../SearchBar/search';
 import classes from  './navbar.module.css';
 import {useSelector,useDispatch} from 'react-redux';
 import {SetPosition, SetIsOpen} from '../../actions/dropdownActions';
+import {SetSelected,GetSelected} from '../../actions/megaMenuActions';
+import MegaMenu from '../MegaMenu/megaMenu';
 const Navbar= props => 
 {
     const menu_items=['Sale','New In','Clothing','Shoes','Accessories','Activewear','Face + Body','Brands','Outlet','Marketplace','Inspiration'];
@@ -32,6 +34,7 @@ const Navbar= props =>
         setMegaMenuPosition({top:pos.top+pos.height});
         setIsHover(true);
         SetCurrentMenuItem(index);
+        dispatch(SetSelected(menu_items[index]));
       
     }
 
@@ -60,14 +63,14 @@ const Navbar= props =>
         <div className={`${classes.menu} row`}>
             <ul>
                 {menu_items.map((item,index)=>
-                <li  className={isHover && index===currentMenuItem?classes.active:''} onMouseEnter={(e)=>onListItemHover(item,e.target,index)} key={item}>
+                <li onMouseLeave={()=>setIsHover(false)}  className={isHover && index===currentMenuItem?classes.active:''} onMouseEnter={(e)=>onListItemHover(item,e.target,index)} key={item}>
                     <a>{item}</a>
                     </li>
                     )}
             </ul>
         </div>
-        {isHover && <div onMouseLeave={()=>setIsHover(false)} style={{top:megaMenuPosition.top,left:'10%'}} className={`${classes.menu_open} row`}>
-
+        {isHover && <div onMouseEnter={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)} style={{top:megaMenuPosition.top,left:'10%'}} className={`${classes.menu_open} row`}>
+            <MegaMenu></MegaMenu>
         </div>}
     </div>
     

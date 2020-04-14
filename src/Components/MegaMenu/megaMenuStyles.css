@@ -1,0 +1,36 @@
+.mega-menu-item-header
+{
+  font-weight: 700;
+  letter-spacing: .2rem;
+  text-decoration: underline;
+  color:var(--primary-dark);
+  font-size: 1.5rem;
+  padding: 0 1rem;
+
+}
+
+.mega-menu-item-list
+{
+    list-style: none;
+
+}
+
+.mega-menu-item-list li
+{
+  font-size: 2.2rem;
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--primary-light);
+  padding: .3rem 1rem;
+
+}
+
+
+.mega-menu-item-list li:hover{
+    color: rgb(96, 96, 248);
+}
+
+.avatar-horizontal{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}

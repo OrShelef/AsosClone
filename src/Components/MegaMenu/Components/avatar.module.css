@@ -1,0 +1,44 @@
+#list_avatars img{
+  
+    width: 5rem;
+    height: 5rem;
+}
+#list_avatars p
+{
+  align-self: center;
+}
+
+.avatar{
+   
+    cursor: pointer;
+    align-self: center;
+}
+
+
+
+.avatar>img{
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+    border: 1px solid #eee;
+    transition: all .3s;
+}
+
+
+.avatar:hover p{
+    color: rgb(96, 96, 248);
+}
+.avatar:hover img{
+    border: 1px solid rgb(96, 96, 248);
+}
+
+
+
+.avatar p{
+    padding: .3rem 0;
+   font-size: 1.6rem;
+   transition: all .3s;
+   font-weight: 300;
+
+}
+

@@ -8,7 +8,7 @@
     background-color: var(--surface);
     width: 80%;
     margin: 0 auto;
-    height: 400px;
+    height: auto;
     position: absolute;
     top: 0;
     left: 0;

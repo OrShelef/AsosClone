@@ -1,0 +1,31 @@
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 2rem;
+}
+
+.main #column:not(:first-child)
+{
+
+border-left: 1px solid rgba(128, 128, 128, 0.122);
+}
+
+
+
+
+#header2+div{
+   
+    padding:2rem;
+
+    
+}
+#header2+div :not(:last-child){
+    margin-right: 2rem;
+    
+}
+
+.thumbnail{
+    margin: 0 auto;
+    width: 90%;
+}
