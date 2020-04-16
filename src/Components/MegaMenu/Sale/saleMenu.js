@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import classes from  './saleMenu.module.css';
 import Thumbnail from '../Components/thumbnail';
@@ -16,7 +16,7 @@ const SaleMenu=(props)=>
       <div>
         <h1 className="mega-menu-item-header">SHOP SALE BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a>{item}</a></li>)}
+        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
         </ul>
       </div>
       <div id={classes.column}>

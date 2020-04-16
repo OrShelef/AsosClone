@@ -1,0 +1,19 @@
+
+.main{
+    background-color: var(--secondery);
+    padding: 0 1rem;
+    font-size: 3rem;
+    color:var(--foreground);
+    word-wrap: break-word;
+    font-weight: 900;
+    letter-spacing: .3rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline;
+   -webkit-box-decoration-break:clone;
+    box-decoration-break: clone;
+    flex: 1;
+    
+}
+

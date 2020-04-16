@@ -17,7 +17,7 @@ class Login extends React.Component {
     onSubmitSignUp= (event,user) => {
         axios.post(`${process.env.REACT_APP_API}/signUp`,user).then(
             res=>{
-                if(res.data.status=='ok')
+                if(res.data.status==='ok')
                 {
 
                 }

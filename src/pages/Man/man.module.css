@@ -1,0 +1,91 @@
+
+
+.main{
+    height: 100vh;
+    text-align: center;
+}
+
+.banner{
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+    background-size: cover !important;
+    padding: 5rem 2rem;
+    margin-bottom: 5rem;
+}
+
+
+.big_banner
+{
+    background-image: url("https://content.asos-media.com/-/media/homepages/unisex/homepages/2020/04_april/mss-sale/desktop/carousel/mw-green-april-sale-desktop-1440x664.jpg");
+
+    padding-top: 3rem;
+
+}
+
+
+.card_list{
+    
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card_list_4{
+    
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 80%;
+    margin: 5rem auto;
+}
+.card_list_4 :not(:last-child){
+    margin-right: 4rem;
+}
+
+.card_list img{
+    width: 100%;
+    height: auto;
+}
+
+.big_banner_button{
+    width: 20%;
+    margin-top: 3rem;
+    align-self: center;
+}
+
+.big_banner_button p{
+    color:var(--foreground);
+    font-size: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+
+.img_banner{
+    width: 80%;
+    margin:5rem auto;
+    position: relative;
+
+}
+
+.img_banner img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.img_banner div{
+    width: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.img_banner h1{
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    color:var(--primary);
+    margin-bottom: 3rem;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}

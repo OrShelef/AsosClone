@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import classes from  './newIn.module.css';
 import Thumbnail from '../Components/thumbnail';
@@ -14,7 +14,7 @@ const items=['View all','Clothing','Shoes','Accessories','Face + Body','Back in 
       <div>
         <h1 className="mega-menu-item-header">NEW PRODUCTS</h1>
         <ul className="mega-menu-item-list">
-        {items.map(item=> <li key={item}><a>{item}</a></li>)}
+        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
         </ul>
       </div>
       <div id={classes.column}>

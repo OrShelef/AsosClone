@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classes from  './outlet.module.css';
 import Thumbnail from '../Components/thumbnail';
-import AvatarList from '../Components/avatarList';
+
 
 
 const OutletMenu=(props)=>
@@ -19,7 +19,7 @@ const OutletMenu=(props)=>
       <div>
         <h1 className="mega-menu-item-header">SHOP BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a>{item}</a></li>)}
+        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
         </ul>
       </div>
      
@@ -28,7 +28,7 @@ const OutletMenu=(props)=>
         SHOP BY BRAND
         </h1>
         <ul className={`mega-menu-item-list ${classes.list2}`}>
-        {items2.map(item=> <li key={item}><a>{item}</a></li>)}
+        {items2.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
         </ul>
       </div>
      

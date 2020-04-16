@@ -2,7 +2,7 @@
 import React from 'react'
 
 import classes from './inspiration.module.css';
-import CardMenuItem from '../Components/card';
+import {CardMenuItem} from '../Components/card';
 
 const InspirationMenu=(props)=>{
     return(

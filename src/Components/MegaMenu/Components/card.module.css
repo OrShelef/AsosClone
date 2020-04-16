@@ -3,9 +3,20 @@
 .main{
     display: grid;
     grid-template-rows: 2.5fr 1fr;
-    padding: 2rem;
+   
     cursor: pointer;
 }
+
+.simple_card
+{
+    display: flex;
+    flex-direction: column;
+  
+    cursor: pointer; 
+    transition: all .4s;
+}
+
+
 .card_img{
     position: relative;
 }
@@ -38,4 +49,25 @@
     color: var(--primary-light);
     font-weight: 300;
     padding: 2rem;
+}
+
+.simple_card_image{
+
+    height: 100%;
+    max-height: 80%;
+}
+
+.simple_card_text>h3{
+    font-size: 1.2rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    padding: 2rem 0;
+    height: 100%;
+    max-height: 20%;
+    background-color:white;
+    
+}
+
+.simple_card:hover{
+    transform: translateY(-3px) scale(1.02);
 }

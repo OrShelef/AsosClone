@@ -21,4 +21,18 @@ const CardMenuItem=(props)=>{
     )
 }
 
-export default CardMenuItem;
+const SimpleCard=(props)=>{
+
+    return(
+        <div className={`${props.className} ${classes.simple_card}`}>       
+        <img className={classes.simple_card_image} src={props.image} alt={props.text}/>
+        <div className={classes.simple_card_text}>
+            <h3>
+                {props.text}
+            </h3>
+        </div>
+        </div>
+    )
+}
+
+export { CardMenuItem,SimpleCard}

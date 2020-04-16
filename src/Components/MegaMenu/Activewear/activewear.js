@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classes from  './activewear.module.css';
 import Thumbnail from '../Components/thumbnail';
 import AvatarList from '../Components/avatarList';
@@ -6,13 +6,6 @@ import AvatarList from '../Components/avatarList';
 
 const ActivewearMenu=(props)=>
 {  
-  
-
-
-
-
-
-
 
   const avatarList=[
     {image:'https://images.asos-media.com/navigation/mw_sr_activewear_shopbyactivity_football_3m_1346093?&$n_240w$',text:'Football'},
@@ -24,13 +17,6 @@ const ActivewearMenu=(props)=>
 
   ]
 
- 
-
-
-
-
-
-
  const items=['30% off sneaker brands','View all','Accessories','Footwear','Jackets','Shorts','Swim','Tops','Trousers & Tights'];
 
  return(
@@ -39,7 +25,7 @@ const ActivewearMenu=(props)=>
       <div>
         <h1 className="mega-menu-item-header">SHOP BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a>{item}</a></li>)}
+        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
         </ul>
       </div>
      

@@ -2,6 +2,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 
@@ -11,6 +12,7 @@ html,body,*{
   font-family: 'Lato', sans-serif;
   box-sizing: border-box;
   font-size: 62.5%;
+  
 }
 
 
@@ -18,7 +20,7 @@ html,body,*{
   --primary:#212121;
   --primary-light:#484848;
   --primary-dark:#000000;
-  --secondery:#43a047;
+  --secondery:#15a66d;
   --surface:#eee;
   --foreground:#fff;
 
@@ -67,4 +69,34 @@ html,body,*{
 
 .vl{
   border-right: 2px solid var(--primary-light);
+}
+
+@keyframes _fadeIn{
+  0%{
+    opacity: 0;
+
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+@keyframes _fadeOut{
+  0%{
+    opacity: 1;
+
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+a:visited,a:link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.primary{
+  color:var(--primary) !important;
 }

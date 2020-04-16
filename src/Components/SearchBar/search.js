@@ -18,7 +18,7 @@ class SearchBar extends React.Component{
         {
            
             
-            this.setState({isEmpty:text.target.value.length==0,text:text.target.value});
+            this.setState({isEmpty:text.target.value.length===0,text:text.target.value});
            
         };
         return (<div className={this.props.className}>

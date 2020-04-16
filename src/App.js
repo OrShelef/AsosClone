@@ -3,6 +3,7 @@ import './App.css';
 import Login from './pages/login';
 import Home from './pages/Home/home';
 import AccountDropDown from './Components/Dropdown/dropdown';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props){
@@ -14,11 +15,11 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
+      <Router>
    
       <Home></Home>
       <AccountDropDown/>
-      </div>
+      </Router>
     
     )
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './megaMenuStyles.css';
 import classes from './megaMenu.module.css';
 import {useSelector,useDispatch} from 'react-redux';

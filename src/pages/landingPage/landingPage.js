@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './landingPage.module.css'
-import {RaisedButton} from '../../Components/buttons';
+import {RaisedButton, LinkRaisedButton} from '../../Components/buttons';
 import sample from '../../assets/People4.mp4'
 
 import axios from 'axios';
@@ -9,9 +9,9 @@ export default class LandingPage extends Component {
 
     componentDidMount()
     {
-      var Products= axios.get('https://simplescraper.io/api/6c6Sziukbi4h7AgW7Gd7?apikey=Ui0mBkg76NeBDR9NUG04cz5X5SuVms5H&limit=20');
+   //   var Products= axios.get('https://simplescraper.io/api/6c6Sziukbi4h7AgW7Gd7?apikey=Ui0mBkg76NeBDR9NUG04cz5X5SuVms5H&limit=20');
 
-      Products.then(res=>console.log(res));
+   //   Products.then(res=>console.log(res));
       
     }
 
@@ -25,7 +25,7 @@ export default class LandingPage extends Component {
                 <h1 className={styles.title}>This is Asos</h1>
                 <p className={styles.subTitle}>ASOS DESIGN and 850+ brands</p>
                 <div className={`${styles.buttons} row`}>
-                    <RaisedButton color="invert">MEN</RaisedButton>
+                    <LinkRaisedButton Link="/man" color="invert">MEN</LinkRaisedButton>
                     <RaisedButton color="invert">WOMEN</RaisedButton>
                 </div>
             </div>
