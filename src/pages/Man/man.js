@@ -4,7 +4,9 @@ import classes  from './man.module.css';
 import HeaderBackground from '../../Components/Text/text';
 import {bannerBG} from '../../assets/images';
 import { SimpleCard, CardMenuItem } from '../../Components/MegaMenu/Components/card';
-import {FlatButton, RaisedButton} from '../../Components/buttons';
+import {FlatButton, RaisedButton, LinkFlatButton} from '../../Components/buttons';
+import {Route} from 'react-router-dom';
+import ShopByProduct from '../Man/ShopByProduct/shopByProduct';
 const Man=(props)=>{
     
     return (
@@ -26,6 +28,7 @@ const Man=(props)=>{
           UP TO 70% OFF                                                                                      
         </HeaderBackground>
 
+      
         <div className={` ${classes.card_list}`}>
             <SimpleCard text="SHOES & TRAINERS" image="https://images.asos-media.com/products/nike-air-max-270-react-trainers-in-off-white/13337204-1-offwhite?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
             <SimpleCard text="T-SHIRTS & VESTS" image="https://images.asos-media.com/products/asos-design-organic-oversized-t-shirt-with-half-sleeve-and-vertical-colourblock-in-navy/13650041-1-navy?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
@@ -35,7 +38,7 @@ const Man=(props)=>{
             <SimpleCard text="JEANS" image="https://images.asos-media.com/products/asos-design-tapered-jeans-in-vintage-mid-wash-blue-with-rips/13229489-1-midwashvintage?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
         </div>
         <div className={classes.big_banner_button}>
-        <FlatButton color="invert">View All</FlatButton>
+        <LinkFlatButton Link="man/shopByProduct" color="invert">View All</LinkFlatButton>
         <p>Limited time only. Selected styles marked down on site.</p>
         </div>
     
@@ -47,7 +50,7 @@ const Man=(props)=>{
                 <h1>
                     Fresh Style
                 </h1>
-                <FlatButton width="50%" color="invert">SHOP NOW</FlatButton>
+                <FlatButton width="50%" color="invert" border="2px solid white">SHOP NOW</FlatButton>
             </div>
            
         </div>
@@ -59,6 +62,43 @@ const Man=(props)=>{
             <CardMenuItem text="SMART TOPS" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay4.jpg"/>
         </div>
     
+    <div className={classes.card_list_2}>
+        <div>
+            <CardMenuItem text="ACTIVEWEAR" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/activewear_gbl_moment_870x1110.jpg"/>
+            <FlatButton color="invert" border="2px solid black" width="40%">SHOP ACTIVEWEAR</FlatButton>
+        </div>
+        <div>
+            <CardMenuItem text="TOPMAN" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/topman_gbl_moment_870x1110.jpg"/>
+            <FlatButton color="invert" border="2px solid black" width="40%">SHOP THE BRAND</FlatButton>
+        </div>
+    </div>
+
+    <div className={classes.brands}>
+        <h1>
+            Tranding Brands
+        </h1>
+
+        <div className={`${classes.brands_list} row space-around`}>
+            <a href="#">
+            <img src="https://content.asos-media.com/-/media/homepages/unisex/brands/256x256/tommy-hilfiger-hp-logos-256x256.jpg"/>
+            </a>
+            <a href="#">
+            <img src="https://content.asos-media.com/-/media/homepages/unisex/brands/256x256/north-face.png"/>
+            </a>
+            <a href="#">
+            <img src="https://content.asos-media.com/-/media/homepages/unisex/brands/256x256/nike-hp-logos-256x256.jpg"/>
+            </a>
+            <a href="#">
+            <img src="https://content.asos-media.com/-/media/homepages/unisex/brands/256x256/carhartt-hp-logos-256x256.jpg"/>
+            </a>
+            <a href="#">
+            <img src="https://content.asos-media.com/-/media/homepages/unisex/brands/256x256/ellesse-hp-logos-256x256.jpg"/>
+            </a>
+            <a href="#">
+            <img src="https://content.asos-media.com/-/media/homepages/unisex/brands/256x256/dr-martens-hp-logos-256x256.jpg"/>
+            </a>
+        </div>
+    </div>
     </div>
     )
 }

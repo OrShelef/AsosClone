@@ -1,0 +1,47 @@
+
+
+.main{
+    position: relative;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    
+}
+.main input{
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-appearance: none;  
+    appearance: none;
+    height: 5px; 
+    background: #d3d3d3; 
+    outline: none; 
+    transition: opacity .2s;
+}
+.main input::-webkit-range-track{
+   z-index: -1;
+
+}
+
+.main input::-webkit-range-track {
+    -moz-appearance: none;
+    background: none transparent;
+    border-color: transparent;
+    z-index: -1;
+  } 
+
+
+
+
+  .main input::-webkit-slider-thumb{
+        width: 25px;
+        height: 25px;
+      position: relative;
+      z-index:3;
+     border-radius: 50%;
+     background: #2d2d2d;
+     -webkit-appearance: none;
+  }
+
+
+

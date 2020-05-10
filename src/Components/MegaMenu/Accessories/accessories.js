@@ -3,6 +3,8 @@ import React from 'react'
 import classes from  './accessories.module.css';
 import Thumbnail from '../Components/thumbnail';
 import AvatarList from '../Components/avatarList';
+import {Link} from 'react-router-dom'
+
 const AccessoriesMenu=(props)=>
 {  
   
@@ -22,7 +24,8 @@ const AccessoriesMenu=(props)=>
       <div>
         <h1 className="mega-menu-item-header">SHOP BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
+
+            {items.map(item=> <li key={item}><Link to='/man/shopByProduct/Accessories'>{item}</Link></li>)}
         </ul>
       </div>
      

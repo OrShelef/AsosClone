@@ -6,8 +6,9 @@ import classes from  './navbar.module.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {SetPosition, SetIsOpen} from '../../actions/dropdownActions';
 import {SetSelected} from '../../actions/megaMenuActions';
-import {SetOverlay} from '../../actions/mainActions';
+import {SetOverlay, SetSideBar} from '../../actions/mainActions';
 import MegaMenu from '../MegaMenu/megaMenu';
+
 const Navbar= props => 
 {
     const menu_items=['Sale','New In','Clothing','Shoes','Accessories','Activewear','Face + Body','Brands','Outlet','Marketplace','Inspiration'];
@@ -16,6 +17,8 @@ const Navbar= props =>
     const [currentMenuItem,SetCurrentMenuItem]=useState(-1);
     const dispatch=useDispatch();
     const state=useSelector(state=>state.main);
+  
+    
     const onMouseEnter=(e)=>
     {   
         var pos=e.target.getBoundingClientRect();
@@ -39,19 +42,29 @@ const Navbar= props =>
         dispatch(SetOverlay(true));
     }
 
- 
+    const OpenSidebar=()=>{
+       
+        
+        dispatch(SetOverlay(true));
+        dispatch(SetSideBar(true));
+    }
+
+    if(!state.showHeaderAndFooter) return <div></div>;
+    
     return (
     <div  className={`${classes.main} col`}>
         <div className={`${classes.container} row`}>
           <div className={`${classes.flat_buttons} row`}>
+              <i onClick={OpenSidebar} className="fas fa-bars"></i>
               <img className={classes.logo} src={logo} alt='logo'/>
-              <FlatButton>WOMEN</FlatButton>
+              <FlatButton >WOMEN</FlatButton>
               <LinkFlatButton StayClicked={true} Link="/man" >Men</LinkFlatButton>
           </div>
 
           <SearchBar className={classes.search_bar}/>
 
           <div className={`${classes.icon_buttons} row`}>
+              <FlatButton ><i className="fas fa-search"></i></FlatButton>
               <FlatButton  onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                      <i className="far fa-user"></i>
               </FlatButton>
@@ -59,7 +72,7 @@ const Navbar= props =>
               <FlatButton><i className="fas fa-shopping-bag"></i></FlatButton>
           </div>
         </div>
-       {state.location.toLowerCase()==='/man' && <div className={`${classes.menu} row`}>
+       {state.isNavbarOpen && <div className={`${classes.menu} row`}>
             <ul>
                 {menu_items.map((item,index)=>
                 <li onMouseLeave={()=>{setIsHover(false);dispatch(SetOverlay(false));}}  className={isHover && index===currentMenuItem?classes.active:''} onMouseEnter={(e)=>onListItemHover(item,e.target,index)} key={item}>

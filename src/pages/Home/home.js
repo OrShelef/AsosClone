@@ -5,8 +5,16 @@ import LandingPage from '../landingPage/landingPage';
 import classes from './home.module.css';
 import {useSelector,useDispatch} from 'react-redux';
 import Man from '../Man/man';
-import { SetLocation } from '../../actions/mainActions';
-
+import { SetLocation, SetNavbar, SetHeaderAndFooter, SetLoading } from '../../actions/mainActions';
+import Footer from '../../Components/Footer/footer'
+import ShopByProduct from '../Man/ShopByProduct/shopByProduct';
+import ItemPreview from '../itemPreview/itemPreview';
+import SignIn from '../SignIn/signIn';
+import SignUp from '../SignIn/SignUp/signUp';
+import MyAccount from '../MyAccount/myAccount';
+import Popup from '../../Components/Popup/Popup';
+import Toast from '../../Components/Toast/Toast';
+import SideBar from '../../Components/Mobile/SideBar/SideBar';
 
 
 const Home=(props)=> 
@@ -15,8 +23,12 @@ const Home=(props)=>
     useEffect(() => {
       let  unlisten = props.history.listen((location, action) => 
       {
-          dispatch(SetLocation(location.pathname));
-          console.log(location.pathname);
+          dispatch(SetLoading(true));
+          dispatch(SetHeaderAndFooter(location.pathname.includes('man')))
+          dispatch(SetNavbar(location.pathname.includes('man')));
+          const title=location.pathname.substr(location.pathname.lastIndexOf('/')+1);
+          if(isNaN(title))
+             document.title=title+" | ASOS";
           
       });
        
@@ -34,23 +46,37 @@ const Home=(props)=>
     }
         return (
                    
-            <div >  
+            <div className="col">  
                 <Navbar/>
-                <div>
+                <div >
                     <span   className={main.isOverlayOpen? classes.main:''}/>
+                    <Popup/>
+                    <Toast/>
+                   <SideBar/>
                 <Switch>               
                     <Route path="/Home">
                         <LandingPage/>
                     </Route>
 
+                    <Route  path="/man/shopByProduct/:depName/:id" render={props=><ItemPreview {...props}/>}/>              
+
+                    <Route  path="/man/shopByProduct/:depName" render={props=><ShopByProduct {...props}/>}/>              
+      
                     <Route path="/man">              
                         <Man/>
+                       
                     </Route>
-                <Redirect from="" to="Home" />
+                   <Route path="/SignIn" component={SignIn}/>
+                   <Route path="/SignUp" component={SignUp}/>
+                   <Route path="/MyAccount" component={MyAccount}/>
+                   
+                <Redirect from="/" to="Home" />
                 </Switch>
+                 {main.showHeaderAndFooter? <Footer/>:null}
+                  
                 </div>
-                
-                </div>
+              
+            </div>
             
         )
     

@@ -1,0 +1,211 @@
+.VoucherList {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    align-items: center;
+    color: #2d2d2d;
+    text-align: center;
+    background-color: #fff;
+    padding-top: 5rem;
+    margin: 1rem 0;
+}
+
+
+.VoucherList :not(:last-child) {
+    margin-bottom: 1.8rem ;
+}
+.VoucherList i {
+    font-size: 4rem;
+    display: block;
+}
+
+.VoucherList >i+h1 {
+    letter-spacing: 0.2rem;
+    font-size: 1.8rem;
+}
+
+.VoucherList p {
+    color: #555;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 90%;
+    line-height: 2.5rem;
+}
+
+.VoucherList button {
+    border-radius: 0;
+    padding: 1.2rem 2rem;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+    font-size: 1.7rem;
+}
+
+.VoucherList button:last-child {
+    background-color: #018849;
+}
+
+.help{
+    background-color: #fff;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+
+.VoucherList ~ .help>h1{
+     align-self: flex-start ;
+     font-size: 1.3rem;
+}
+
+.VoucherList ~ .help :not(:last-child)
+{
+    margin-bottom: 1.2rem;
+}
+
+
+.Expander button{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.2rem;
+    border: none ;
+    background-color: transparent;
+    margin-top: 1.2rem;
+}
+.Expander button span{
+    position: relative;
+}
+
+.Expander button span::before{
+    content: '';
+    position: absolute;
+    height: .2rem;
+    width: 1.6rem;
+    background-color: #2d2d2d;
+    left: 0;
+
+}
+
+.Expander button span::after{
+    content: '';
+    position: absolute;
+    height: .2rem;
+    width: 1.6rem;
+    background-color: #2d2d2d;
+    transform: rotateZ(90deg);
+    left: 0;
+   
+
+}
+.Expander>button+div{
+    transition: all .4s ease-in;
+    overflow: hidden;
+}
+.Expander>button+div.Open
+{
+    opacity: 1;
+    max-height: 500px;
+   
+}
+.Expander>button+div.Close
+{
+    opacity:0;
+    max-height: 0;
+  
+}
+.Expander button.Open{
+    font-weight: 900;
+}
+.Expander .Open span::after{
+    animation: rotateAfterIn .6s  ease  forwards ;
+}
+.Expander .Close span::after{
+    animation: rotateAfterOut .6s  ease backwards ;
+}
+.Expander .Open span::before{
+    animation: rotateBeforeIn .6s  ease forwards ;
+}
+.Expander .Close span::before{
+    animation: rotateBeforeOut .6s  ease backwards ;
+}
+@keyframes rotateAfterIn{
+    80%{
+        transform: rotateZ(135deg);  
+    }
+    100%{
+        transform: rotateZ(180deg);  
+    }
+}
+@keyframes rotateBeforeIn{
+    80%{
+        transform: rotateZ(45deg);  
+    }
+
+    100%{
+        transform: rotateZ(0); 
+    }
+}
+
+@keyframes rotateAfterOut{
+    0%{
+        transform: rotateZ(180deg);  
+    }
+    80%{
+        transform: rotateZ(135deg);  
+    }
+    100%{
+        transform: rotateZ(90deg);  
+    }
+}
+@keyframes rotateBeforeOut{
+    0%{
+        transform: rotateZ(0deg);  
+    }
+    80%{
+        transform: rotateZ(45deg);  
+    }
+
+    100%{
+        transform: rotateZ(0deg); 
+    }
+}
+
+.Expander::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: .1rem;
+    opacity: 0.5;
+    background-color: #bbb;
+    
+}
+.Open.Expander::after
+{
+    display: none;
+}
+.Open.Expander{
+    margin:1rem 0;
+}
+.expanderContent{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.expanderContent p{
+    font-size: 1.5rem;
+}
+.expanderContent :not(:last-child)
+{
+    margin-bottom: 1.4rem;
+}
+
+.expanderContent a{
+    text-align: right;
+    font-size: 1.4rem;
+    cursor: pointer;
+    text-decoration: underline;
+    width: 100%;
+}

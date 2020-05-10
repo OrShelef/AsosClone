@@ -1,0 +1,178 @@
+.main {
+    display: flex;
+    
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    align-self: center;
+    width: 60vw;
+}
+
+.container+div{
+    
+    width: 60vw;
+    align-self: center;
+}
+
+.product_info{
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 55rem;
+}
+
+.product_info h2, .product_info h1,.product_info p,.sizes p{
+    font-size: 2rem;
+    color: #2d2d2d;
+    letter-spacing: .2rem;
+    opacity: .8;
+    line-height: 3rem;
+    font-weight: 400;
+}
+
+.product_info p{
+    opacity: 1;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.product_info h1{
+    font-weight: 900;
+
+}
+
+.product_info a,.sizes a{
+    color: #2d2d2d;
+    cursor: pointer;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    margin: 2rem 0;
+    font-weight: 300;
+}
+
+.sizes{
+    display: flex;
+    place-content: space-between;
+}
+
+.sizes *{
+    
+    align-self: center;
+}
+.sizes i{
+    background-color: darkblue;
+    color: white;
+    font-size: 1rem;
+    border-radius: 50%;
+    padding: .5rem;
+    margin-right: 1rem;
+}
+
+.main select{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #2d2d2db8;
+}
+
+.itemDetails span:not(:last-child),.itemDetails div:not(:last-child),.itemDetails select:not(:last-child)
+{
+    margin-bottom: 1.5rem;
+}
+
+.main select:focus{
+    box-shadow: 0rem 0rem 0.5rem 1px rgba(0, 0, 255, 0.514)
+}
+
+.main option{
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #333;
+   
+}
+
+.itemDetails{
+    display: flex;
+    flex-direction: column;
+}
+
+.itemDetails i:last-child{
+    font-size: 2rem;
+   
+    border-radius: 50%;
+    background-color: #eee;
+    padding: .8rem;
+}
+
+.itemDetails button{
+    font-size: 1.5rem;
+    letter-spacing: .2rem;
+    font-weight: 900;
+    padding: 1.5rem 3rem;
+    width: 80%;
+    border: none;
+    background-color: #018849;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}
+.itemDetails button:hover{
+    background-color: #006e3b;
+}
+.add_to_bag{
+    display: flex;
+    place-content:space-between;
+    width: 100%;
+}
+
+.add_to_bag *{
+    align-self: center;
+}
+
+.returnsContainer{
+    font-weight: 300;
+    font-size: 1.4rem;
+    padding: 2rem 3rem;
+    background-color: #CCEEDE;
+    color: #2d2d2d;
+    word-wrap:break-word;
+
+}
+
+.sizing
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    padding: .7rem 1rem;
+    margin-top: 3rem;
+}
+
+.sizing h1{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: .1rem;
+}
+
+.sizing h2,.sizing a{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    opacity: 1;
+    letter-spacing: .1rem;
+    display: inline;
+}
+
+.sizing span :not(:last-child)
+{
+    margin-right: .5rem;
+}
+.sizing span{
+    margin-bottom: 1rem;
+}

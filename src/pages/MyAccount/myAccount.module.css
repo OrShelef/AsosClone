@@ -1,0 +1,180 @@
+
+
+.container{
+    
+    background-color: #eee;
+    min-height: 100vh;
+}
+
+.main{
+    width: 100rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.main > div{
+    display: flex;
+    place-content: space-between;
+}
+
+.main > div *{
+    align-self: center;
+}
+
+.main > div h1{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    color: #2d2d2d;
+    font-weight: 900;
+}
+
+.logo {
+    background: url('../../assets/asos-logo.png') no-repeat center;
+    height: 10rem;
+    background-size: 15rem;
+    filter: invert(1);
+    width: 20rem;
+}
+
+
+.grid{
+    display: grid !important;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  
+}
+
+.grid>div~*{
+    align-self: flex-start;
+}
+.name_section{
+    width: 100%;
+}
+
+.name_section .name_circle{
+    border-radius: 50%;
+    padding: 2rem;
+    background-color: #2d2d2d;
+    position: relative;
+    width:11rem;
+    height: 9rem;
+   margin-left: -1rem;
+  
+}
+
+.name_section .name_circle p{
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    letter-spacing: .5rem;  
+   
+}
+
+.name_section{
+    background-color: #fff;
+    padding: 3rem 0;
+    display: flex;
+}
+
+.name_circle+div{
+    padding-left: 2rem;
+}
+.name_circle+div p{
+    font-size: 1.5rem;
+}
+
+.name_circle+div h1{
+    font-size: 1.5rem;
+    text-transform: none;
+    font-weight: 900;
+}
+
+
+.name_section + div{
+    display: flex;
+}
+.name_section+div i,.name_section+div p{
+    padding: 1rem 2rem;
+    font-size: 2rem;
+}
+
+.name_section + div p{
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    font-weight: 300;
+    word-spacing: .2rem;
+}
+
+.account_overview{
+    background-image:url('https://assets.asosservices.com/myaccount/82e03f53ac083ed46162e83f65b8c15d.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    padding: 8rem 4rem;
+}
+
+
+.listItem{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 1.8rem 3rem;
+    font-size: 2rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.grid ul{
+    list-style: none;
+    width: 100%;
+}
+
+.grid ul a:not(:last-child){
+    margin: .5rem 0;
+}
+
+.listItem i{
+    font-size: 2rem; 
+    color: #2d2d2d;
+}
+
+.listItem p{
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #2d2d2d;
+}
+
+
+.listItem.selected{
+    border-left:3px solid #15a3d9;
+}
+
+.listItem.selected p{
+    font-weight: 700;
+}
+
+.listItem:hover p{
+    text-decoration: underline;
+}
+
+.header{
+    font-size: 3rem !important;
+    font-weight: 300 !important;
+}
+
+.header h1{
+    padding: 2rem !important;
+}
+
+.grid>div{
+    align-self: flex-start !important;
+}

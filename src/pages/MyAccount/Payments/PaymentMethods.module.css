@@ -1,0 +1,292 @@
+
+.main>div p,.mainForm p{
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+    padding:1rem 3rem;
+}
+
+.main button{
+    padding: 1rem 0rem!important;
+    font-size: 1.7rem;
+     font-weight: 900;
+     transition: none !important;
+}
+
+.mainForm form button{
+    width: 35rem;
+    height: 5rem;
+    align-self: flex-start;
+   }
+
+
+
+.mainForm h1 {
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding:0rem 3rem;
+    padding-top: 3rem;
+}
+
+
+
+
+/* form style */
+.mainForm form {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mainForm form label {
+    font-size: 1.3rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.mainForm form input {
+    padding: 1.3rem 1.3rem;
+    border: 0.1rem solid #2d2d2d;
+    margin-bottom: 2.5rem;
+}
+
+.mainForm form input:focus {
+    box-shadow: inset 0 0 0.6rem rgba(27, 152, 255, 0.726);
+}
+
+/* submit style */
+.mainForm form button {
+    padding: 1.2rem 1rem;
+   
+    align-self: center;
+    background-color: #2d2d2d ;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s;
+    margin-top: 2.5rem;
+    width: 60%;
+}
+
+.mainForm form button:hover:not(:disabled) {
+    background-color: #666;
+    opacity: 0.8;
+}
+
+.mainForm form button:disabled {
+    background-color: #666;
+    opacity: 0.8;
+}
+
+.mainForm *{
+    align-self: flex-start !important;
+    background-color: #fff;
+    margin:0;
+}
+
+
+.country div{
+    display: flex;
+   margin-top: 1rem;
+   margin-bottom: 3rem;
+}
+
+.country img{
+    width: 4rem;
+}
+
+.country select{
+    height: 100%;
+    font-size: 1.6rem;
+    align-self: center !important;
+    padding: 1rem;
+    margin-left: 1rem;
+   
+    color: #2d2d2d;
+}
+
+.country option{
+    color: #2d2d2d;  
+      font-size: 1.6rem;
+
+}
+
+.check_box div{
+    border-radius: 0;
+    border: 1px solid #2d2d2d;
+    
+}
+
+.check_box label{
+    margin-top: .3rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    text-transform: none;
+}
+
+.check_box i{
+    font-size: 1.5rem;
+    color: #2d2d2d !important;
+}
+
+.check_box{
+    padding: 1rem 0;
+}
+
+.list_item{
+    background-color: #fff;
+    padding: 3rem;
+    display: flex;
+    place-content: space-between;
+    margin-top: 1rem;
+
+}
+
+.list_item>div p:disabled{
+    padding: 1rem 0 !important;
+}
+.list_item>div *{
+align-self: flex-start;
+font-size: 1.5rem;
+}
+
+.list_item>div :not(:last-child){
+    margin-bottom: .5rem;
+}
+
+.list_item>div>div{
+    display: flex;
+        
+}
+.list_item>div>div p{
+    align-self: center;
+    margin-left: 2rem;
+    line-height: 3rem;
+    font-size:1.6rem ;
+    font-weight: 300;
+}
+.list_item>div+div{
+    width: auto;
+    align-self: flex-start;
+
+}
+
+.list_item>div+div a{
+    display: flex;
+    padding: 1rem 2rem;
+    width: 100%;
+    place-content: space-between;
+   
+
+}
+
+.list_item>div+div a.disabled{
+    opacity: .5;
+    cursor: auto;
+}
+.list_item>div+div a p{
+    margin-right: 2rem;
+    margin-bottom: 0 !important;
+    font-size: 1.2rem;
+    font-weight: 900;
+    align-self: flex-end !important;
+  
+
+}
+
+.list_item>div+div a i{
+    font-size: 1.7rem;
+}
+.list_item>div+div a *{
+    align-self: center;
+}
+
+.popup{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.popup>div{
+    display: flex;
+    place-content: space-between;
+}
+
+.popup>div h1{
+    font-size: 1.8rem;
+    width: 100%;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: .3rem;
+    align-self: flex-end;
+
+}
+
+.popup>div i{
+    font-size: 2.5rem;
+    color: #2d2d2d !important;
+    cursor: pointer;
+
+}
+
+.popup>div+p{
+    font-size: 1.4rem;
+    color: #2d2d2d;
+    font-weight: 400;
+    text-align: center;
+    word-spacing: .3rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem !important;
+}
+
+.popup button{
+    border-radius: 0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: .2rem;
+}
+
+.popup :not(:last-child)
+{
+    margin-bottom: 1rem;
+}
+
+
+.hr{
+    width: 100%;
+    background-color: #ddd;    
+    height: .15rem;
+    margin:3rem 0;
+    
+}
+
+.hr + div{
+    display: flex;
+}
+
+.hr + div p{
+    padding: 1rem 0;
+    width: 15rem;
+}
+
+.hr + div ul {
+    align-self: center !important;
+}
+.hr + div ul :not(:last-child){
+    margin-right: 1rem;
+}
+.hr + div ul img{
+    width: 3rem;
+    
+}

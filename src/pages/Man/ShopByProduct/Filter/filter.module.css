@@ -1,0 +1,333 @@
+
+
+.main{
+    display: grid;
+    background-color: #eee;
+    padding: 1rem 5%;
+  
+
+
+}
+
+.comboBoxContainer{
+   width: auto;
+   position: relative;
+}
+
+
+
+.main .comboBoxContainer:not(:last-child)
+{
+    margin-right: 2rem;
+    margin-bottom: .5rem;
+}
+
+.comboBoxContainer .comboBox{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    width: 100%;
+    padding: 1.5rem .5rem;
+    border-top: 1px solid rgba(220, 220, 220, .9);
+    border-bottom: 1px solid rgba(220, 220, 220, .9);
+    border-right: none;
+    border-left: none;
+   transition: all .3s;
+    opacity: .7;
+}
+
+.comboBoxContainer .comboBox.not_empty{
+    border-top: 2px solid #0770cf;
+}
+
+.comboBoxContainer .comboBox:hover{
+    color: #0770cf;
+}
+
+.comboBoxContainer .comboBox.active{
+    outline: none;
+    border: 1px solid #0770cf;
+    border-top: 3px solid #0770cf ;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: .2rem .2rem 1rem black;
+    color: #0770cf;
+}
+
+.comboBoxContainer .comboBox.active i{
+    transform: rotate(-180deg);
+}
+
+.comboBoxContainer .comboBox p {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+
+}
+
+.comboBoxContainer .comboBox i
+{
+  
+    align-self: center;
+    font-size: 1.2rem;
+    transition: all .4s ease-out;
+}
+
+
+/* Combobox Container */
+
+.container {
+    color: #2d2d2d;
+    box-shadow: .2rem .2rem 1rem black;
+    background-color:#eee;
+    position: absolute;
+    z-index: 9999;
+    width: 40rem;
+    margin-top: .4rem;
+}
+
+.container ul{
+    list-style: none;
+    height: 30rem;
+    overflow-y:auto;
+    padding:1.5rem 1rem;
+}
+.container ul li:not(:last-child){
+    margin-bottom: 1rem;
+
+}
+.container > div {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    background-color: #fff;
+  
+    box-shadow: 0rem .1rem .3rem rgba(128, 128, 128, 0.39);
+}
+
+.container > div p {
+    font-size: 1.6rem;
+}
+
+.container > div > div > p + p{
+    margin-top: .5rem;
+    opacity: .6;
+}
+
+.container > div button {
+    border: 2px solid #999;
+    padding:1.2rem 1.5rem;
+    width:12rem;
+    height: 4rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    transition: all 0.3s;
+    background-color: transparent;
+    color: #999;
+    text-align: center;
+}
+.container > div button i
+{
+    display: flex;
+    font-size: 1.4rem;
+    
+}
+.container > div button i>p,.container > div button p{
+    font-size: 1.4rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
+.container > div button:hover {
+    border-color: #0770cf;
+    color: #0770cf;
+}
+
+
+
+/* Combobox item */
+
+.combobox_item,.radio_button {
+    background-color: #fff;
+    color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+
+.combobox_item:hover,.radio_button:hover  {
+    box-shadow: 0.2rem 0.2rem 0.2rem darkgray;
+}
+
+.combobox_item span, .radio_button span{
+    display: flex;
+    font-size: 1.8rem;
+}
+
+.combobox_item span>p{
+    margin-left: .5rem;
+    align-self: center;
+    font-size: 1.7rem;
+    color: #555;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    color: #9b9b9b;
+}
+
+.selected{
+    background-color: #0770cf;
+    color: #fff;
+    font-weight: 700;
+}
+
+.combobox_item.selected span>p{
+    color: #fff;
+    font-weight: 900;
+}
+
+
+/* Radio Button */
+
+.radio_button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.radio_button .radio {
+    border: 1.5px solid #666;
+    border-radius: 50%;
+    height: 2.8rem;
+    width:3rem;
+    position: relative;
+
+}
+
+.radio_button span {
+    width: 100%;
+}
+
+.selected.radio_button .radio{
+    border: 1.5px solid white;
+}
+.selected>.radio>span
+{
+    color: white;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.main_mobile
+{
+    display: none;
+}
+
+@media (min-width: 1024px)
+{
+    .main {
+        grid-template-columns: repeat(5,1fr);
+    } 
+}
+
+@media (min-width: 768px) and (max-width:1023px)
+{
+    .main {
+        grid-template-columns: repeat(4,1fr);
+    }   
+    
+}
+
+@media (min-width: 500px) and (max-width:767px)
+{
+    .main {
+        grid-template-columns: repeat(3,1fr);
+    }   
+}
+
+@media (max-width:499px)
+{
+    .main {
+        display: none;
+    }   
+
+    .main_mobile{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+        font-size:1.4rem;
+    }
+    .main_mobile>div{
+        position: relative;
+      
+    }
+    .main_mobile>div>label
+    {
+        background-color: transparent !important;
+        z-index: 2;
+        position: absolute;
+        top:0rem;
+        left: 0;
+        pointer-events: none;
+        width: 100%;
+        
+       
+    }
+
+    .main_mobile>div>label::before{
+        position: absolute;
+        right: 0;
+     
+        content: "";
+        height: 20px;
+        border-right: 1px solid #ccc;
+    }
+    .main_mobile>div>label::after
+    {
+        margin-left: .5rem;
+        width: 1rem;
+        height: 1.8rem;
+        display: inline-flex;
+        vertical-align: sub;
+        content: "";
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='7' xmlns='http://www.w3.org/2000/svg' fill='%23666'%3E%3Cpath d='M5.057 3.566L7.974.649l1.414 1.414-4.243 4.243-.088-.089-.084.085L.73 2.06 2.141.65l2.916 2.916z' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 100%;
+    }
+    .main_mobile *{
+      font-size: inherit;
+      border: none;
+      text-align: center;
+     
+      background-color: #eee;
+      padding: 1rem 0;
+
+    }
+    .main_mobile select{
+        appearance: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        text-indent: -9999px;
+    }
+
+    .main_mobile option{
+        padding: .5rem;
+    }
+    
+}

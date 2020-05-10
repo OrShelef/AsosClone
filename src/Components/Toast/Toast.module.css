@@ -1,0 +1,39 @@
+
+.main{
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-100%);
+    background-color: #2d2d2d;
+    width: 40vw;
+    height: 5rem;
+    padding: 1rem 3rem;
+    z-index: 10000002;
+    animation: slideIn .4s;
+    display: flex;
+    
+}
+
+.main i{
+    font-size: 1.6rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main p{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%,-50%);
+    align-self: center;
+    margin-left: 1rem;
+}
+
+@keyframes slideIn{
+    0%{
+        transform: translate(-50%,0);  
+    }
+}

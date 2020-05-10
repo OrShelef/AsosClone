@@ -1,0 +1,21 @@
+
+
+.main{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:scale(1) translate(-50%,-50%);
+    transform-origin: left;
+    background-color: #fff;
+    z-index: 100001;
+    opacity: 1;
+  
+    animation: fade .4s ;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: scale(0) translate(-50%,-50%);;
+    }
+}

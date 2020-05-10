@@ -1,0 +1,43 @@
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 3rem;
+
+}
+
+
+.buttons button {
+    display: flex;
+    
+    padding: 1.3rem 3rem;
+    border: 2px solid #ddd;
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+    background-color: #fff;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    max-width: 31%;
+    width: 31%;
+    overflow: hidden;
+}
+
+
+
+.buttons button:hover {
+    opacity: 0.6;
+}
+
+.buttons img{
+    width: 2rem;
+    height: 100%;
+    margin-right: 1rem;
+}
+
+.buttons p{
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+

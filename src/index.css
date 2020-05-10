@@ -3,10 +3,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  
 }
-
-
-
 
 html,body,*{
   font-family: 'Lato', sans-serif;
@@ -15,6 +13,9 @@ html,body,*{
   
 }
 
+.disable-scroll{
+  overflow-y: hidden;
+}
 
 :root{
   --primary:#212121;
@@ -71,6 +72,11 @@ html,body,*{
   border-right: 2px solid var(--primary-light);
 }
 
+.fade{
+  animation: _fadeIn 2s;
+ 
+}
+
 @keyframes _fadeIn{
   0%{
     opacity: 0;
@@ -99,4 +105,13 @@ a:visited,a:link{
 
 .primary{
   color:var(--primary) !important;
+}
+
+button:disabled{
+  cursor: auto !important;
+}
+
+i[class*="fas"].outline{
+  -webkit-text-stroke: #2d2d2d 1.2px ;
+  color: transparent !important;
 }

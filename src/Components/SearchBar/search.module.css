@@ -3,12 +3,12 @@ div {
     width: 100%;
 }
 input.search_input {
-    padding: 15px;
-    
+    height: 100%;
+    padding: 0 2rem;
     outline: none;
     border: .5px solid var(--secondery);
     transition: all .3s;
-    font-size: 18px; 
+    font-size: 1.3rem; 
     width: 100%;
     position: relative;
 }
@@ -18,7 +18,7 @@ div>i.icon{
     right: 0px;
     transform: translateY(-50%);
     z-index: 10;
-    font-size: 24px;
+    font-size: 1.4rem;
   
     border-radius: 50%;
     padding: 14px;
@@ -43,7 +43,7 @@ div>i.icon{
     font-size: 17px;
     position: absolute;
     top: 50%;
-    right: 65px;
+    right: 5rem;
     transform: translateY(-50%);
     color: black;
     animation: fadeInAndSlide .3s;

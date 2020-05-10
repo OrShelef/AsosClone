@@ -1,0 +1,183 @@
+.main {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+
+
+
+.main i {
+    position: absolute;
+    top: 94%;
+    right: .5rem;
+    transform: translate(-.5rem,-94%);
+    font-size: 2rem;
+    -webkit-text-stroke: #2d2d2d 2px;
+    color:transparent;
+    border-radius: 50%;
+    background-color: #eee;
+    padding: .8rem;
+
+}
+
+.main i:hover{
+    color: #2d2d2d;
+}
+
+.main i:not(:first-of-type)
+{
+    z-index: -1;
+}
+
+.fillIcon{
+    color: #2d2d2d !important;
+    animation: heartAnimation .3s cubic-bezier(.84,.52,.97,.4);
+}
+
+.fillIcon+i{
+    background-color: transparent !important;
+ animation: heart_bg_1 2.3s .3s;
+}
+
+.fillIcon~.heart_bg{
+ background-color: transparent !important;
+ animation: heart_bg_2 2.3s .3s;
+  
+}
+.main :not(:last-child){
+    margin-bottom: 1rem;
+}
+
+.main .image>img{
+    position: relative;
+    width: 100%;
+   
+   
+  
+    
+    object-fit: cover;
+}
+
+._discount{
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    transform: translateY(1rem);
+    background-color: #fff;
+    color: tomato;
+    font-size: 1rem;
+    z-index: 3;
+    padding: .5rem;
+}
+
+.main p {
+    height: 60px;
+    max-height: 60px;
+    font-size: 1.6rem;
+   
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+    color: var(--primary);
+    font-weight: 300;
+}
+
+.main h2
+{
+    height: 100%;
+    max-height: 80px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    opacity: .7;
+    letter-spacing: .1rem;
+}
+
+
+.itemsMain {
+    position: relative;
+}
+
+
+.styleFound {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: var;
+
+}
+.items {
+    display: grid;
+  
+    column-gap: 2rem;
+    margin-top: 3rem;
+    padding: 0 5%;
+}
+
+@media (min-width: 1024px)
+{
+    .items {
+        grid-template-columns: repeat(4,1fr);
+    } 
+}
+
+@media (min-width: 768px) and (max-width:1023px)
+{
+    .items {
+        grid-template-columns: repeat(3,1fr);
+    }   
+    
+}
+
+@media (min-width: 500px) and (max-width:767px)
+{
+    .items {
+        grid-template-columns: repeat(2,1fr);
+    }   
+}
+@keyframes heartAnimation{
+
+    0%{
+        transform:translate(-.5rem,-94%) scale(1);
+
+    }
+
+    60%{
+        transform:translate(-.5rem,-94%) scale(1.2);
+    }
+
+    100%{
+        transform:translate(-.5rem,-94%) scale(1);
+
+    }
+}
+
+@keyframes heart_bg_1{
+
+    0%{
+        z-index: 2;
+        transform:translate(-.5rem,-94%) scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform:translate(-3.5rem,-34%) scale(0);
+        opacity: 0;
+
+    }
+}
+
+@keyframes heart_bg_2{
+
+    0%{
+        z-index: 2;
+        transform:translate(-.5rem,-94%) scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform:translate(-.5rem,34%) scale(0);
+        opacity: 0;
+
+    }
+}

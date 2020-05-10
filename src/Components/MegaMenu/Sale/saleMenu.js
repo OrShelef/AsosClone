@@ -3,20 +3,21 @@ import React from 'react'
 import classes from  './saleMenu.module.css';
 import Thumbnail from '../Components/thumbnail';
 import Avatar from '../Components/avatar';
-
+import {Link} from 'react-router-dom';
 const SaleMenu=(props)=>
 {   
     const items=['SALE View All','SALE Accessories','SALE Bags','SALE Gifts','SALE Hoodies & Sweatshirts',
     'SALE Jackets & Coats',' SALE Jeans',' SALE Jewellery & Watches',' SALE Jumpers & Cardigans','  SALE Loungewear',' SALE Polo shirts',
     'SALE Shirts','SALE Shoes & Trainers','SALE Shorts','SALE Suits & Tailoring','SALE Sunglasses','SALE Swimwear'
     ,'SALE T-Shirts & Vests','SALE Tracksuits','SALE Trousers & Chinos','SALE Underwear & Socks','A-Z of brands']
+
  return(
 
     <div className={`${classes.main}`}>
       <div>
         <h1 className="mega-menu-item-header">SHOP SALE BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
+        {items.map(item=> <li key={item}><Link to={`/man/shopByProduct/Sale`}>{item}</Link></li>)}
         </ul>
       </div>
       <div id={classes.column}>

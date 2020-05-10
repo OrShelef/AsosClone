@@ -110,3 +110,19 @@ font-size: inherit;
     border-bottom: 15px solid #eee;
 
 }
+
+.header button{
+    padding:.2rem 0;
+}
+
+.header strong {
+    font-size: 1.7rem;
+}
+
+.header strong+a{
+    text-decoration: underline !important;
+    font-size: 1.5rem;
+    margin-top: 0.3rem;
+    margin-left: .5rem;
+
+}

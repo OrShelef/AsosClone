@@ -11,10 +11,14 @@ const CheckBox=props=>{
 
     const onChecked =() => {
         setState({checked:!state.checked});
+        if(props.onChecked){
+            props.onChecked(!state.checked);
+        }
     }   
 
     return(
     <div onClick={onChecked} className={`checkbox row ${props.className}`}>
+            <input ref={props.register} name={props.name ?props.name:props.text} checked={state.checked} type="checkbox"/>
              <div className="checkbox-container">
              <i  className={state.checked?"fas fa-check center animate":""}></i>
          </div>

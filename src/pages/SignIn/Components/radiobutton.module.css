@@ -1,0 +1,51 @@
+
+
+.main{
+    display: flex;
+    place-content: flex-start;
+    position: relative;
+    padding: .7rem 1.3rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.main input{
+    visibility: hidden;
+    position: absolute;
+}
+
+.main div{
+    border: 1.5px solid #666;
+    border-radius: 50%;
+    height: 2.6rem;
+    width:3.2rem;
+    position: relative;
+}
+
+.main span{
+    border-radius: 50%;
+    background-color: black;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.main label{
+
+    align-self: center !important;
+    font-size: 1.1rem !important;
+    text-transform: capitalize !important;
+    margin: 0 !important;
+    width: 100% !important;
+    font-weight: 400 !important;
+    
+}
+
+.main>input:checked+div>span{
+    opacity: 1;
+}

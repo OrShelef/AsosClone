@@ -1,0 +1,46 @@
+
+
+.list_item{
+    display: flex;
+
+    background-color: white;
+    padding: 4rem;
+    margin-top: 1rem;
+    height: 17rem;
+}
+
+.list_item img,.list_item div {
+    align-self: flex-start;
+    margin-right: 2rem;
+}
+
+.list_item>div h1{
+    text-transform: capitalize;
+    font-size: 1.6rem;
+
+}
+
+.socialButton{
+    padding: 1rem 0 !important;
+    font-size: 1.2rem;
+
+    font-weight: 900 !important;;
+}
+
+.main p{
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.hr{
+    width: 100%;
+    background-color: #ddd;    
+    height: .1rem;
+    margin:3rem 0;
+    margin-bottom: 1rem;
+}
+
+.hr + p {
+    align-self: flex-start;
+}

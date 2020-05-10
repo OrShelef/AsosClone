@@ -1,0 +1,140 @@
+
+
+.mainForm select{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #2d2d2db8;
+}
+
+.mainForm select:focus{
+    box-shadow: 0rem 0rem 0.5rem 1px rgba(0, 0, 255, 0.514)
+}
+
+.mainForm option{
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #333;
+}
+
+.mainForm .dob{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr;
+    gap: 1.5rem;
+    width: 65%;
+}
+
+
+.dob+p{
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    color:#666 ;
+    font-weight: 300;
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+.main>div p{
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.main .mainForm form button{
+    width: 35rem;
+    height: 5rem;
+    align-self: flex-start;
+   }
+
+
+
+   .main .mainForm h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+
+
+/* form style */
+.main .mainForm form {
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main .mainForm form label {
+    font-size: 1.3rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.main .mainForm form input {
+    padding: 1.3rem 1.3rem;
+    border: 0.1rem solid #2d2d2d;
+    margin-bottom: 2.5rem;
+}
+
+.main .mainForm form input:focus {
+    box-shadow: inset 0 0 0.6rem rgba(27, 152, 255, 0.726);
+}
+
+/* submit style */
+.main .mainForm form button {
+    padding: 1.2rem 1rem;
+    width: 90%;
+    align-self: center;
+    background-color: #2d2d2d ;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s;
+    margin-top: 2.5rem;
+    width: 60%;
+}
+
+.main .mainForm form button:hover:not(:disabled) {
+    background-color: #666;
+    opacity: 0.8;
+}
+
+.main .mainForm form button:disabled {
+    background-color: #666;
+    opacity: 0.8;
+}
+
+
+
+/* forgot password  */
+
+.main .mainForm p a {
+    color: #2d2d2d;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.main .mainForm p a:hover {
+    color: #777;
+    border-bottom: 0.1rem solid #2d2d2d;
+    padding: 0.5rem 0;
+}
+
+
+.mainForm *{
+    align-self: flex-start !important;
+    background-color: #fff;
+    margin:0;
+}

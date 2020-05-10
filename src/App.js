@@ -5,6 +5,8 @@ import Home from './pages/Home/home';
 import AccountDropDown from './Components/Dropdown/dropdown';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -19,8 +21,9 @@ class App extends React.Component {
    
       <Home></Home>
       <AccountDropDown/>
-      </Router>
     
+      </Router>
+
     )
   }
 }

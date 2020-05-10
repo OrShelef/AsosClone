@@ -1,0 +1,41 @@
+.seperator {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+.seperator > div {
+    font-size: 1.8rem;
+    position: relative;
+    letter-spacing: 0.3rem;
+    margin-bottom: 4rem;
+}
+
+.seperator > div:before {
+    position: absolute;
+    width: 43%;
+    max-width: 43%;
+    border-top: 1px solid #eee;
+    left:3%;
+    top: 50%;
+    content: "";
+}
+
+.seperator > div:after {
+    position: absolute;
+    width: 43%;
+    max-width: 43%;
+    border-top: 1px solid #eee;
+    right:3%;
+    top: 50%;
+    content: "";
+}
+
+
+.seperator h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+
+}

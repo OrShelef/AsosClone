@@ -2,7 +2,7 @@ import React from 'react'
 
 import classes from  './newIn.module.css';
 import Thumbnail from '../Components/thumbnail';
-
+import {Link}  from 'react-router-dom'
 const NewInMenu=(props)=>
 {   
 
@@ -14,7 +14,7 @@ const items=['View all','Clothing','Shoes','Accessories','Face + Body','Back in 
       <div>
         <h1 className="mega-menu-item-header">NEW PRODUCTS</h1>
         <ul className="mega-menu-item-list">
-        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
+            {items.map(item=> <li key={item}><Link to={'/man/shopByProduct/NewIn'}>{item}</Link></li>)}
         </ul>
       </div>
       <div id={classes.column}>

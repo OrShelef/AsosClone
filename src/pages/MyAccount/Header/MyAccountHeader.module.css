@@ -1,0 +1,32 @@
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 4rem;
+    background-color: #fff;
+    text-align: left;
+    align-self: flex-start !important;
+}
+
+.main *{
+    color: #2d2d2d;
+    align-self: flex-start !important;
+}
+
+.main i{
+    font-size: 3rem;
+}
+.main i[class*="fas"]{
+   
+    -webkit-text-stroke-width: 2px;
+}
+
+.main h1{
+    font-size: 3.5rem;
+}
+
+.main :not(:last-child){
+    margin-bottom: 2rem;
+}

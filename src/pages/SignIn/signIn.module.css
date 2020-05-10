@@ -1,0 +1,133 @@
+a:link,a:visited {
+    text-decoration: none;
+    color: #2d2d2d;
+}
+
+/* main... */
+.main {
+    background-color: #eee;
+    padding: 1.5rem 0;
+    overflow-y: auto;
+    text-align: center;
+}
+
+
+.main .header a .logo {
+    background: url('../../assets/asos-logo.png') no-repeat center;
+    height: 10rem;
+    background-size: 15rem;
+    filter: invert(1);
+}
+
+
+.main h1 {
+    font-size: 4rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* container style */
+.main .container {
+    background-color: #ffffff;
+    width: 45%;
+    color: #2d2d2d;
+    padding:  3rem 0;
+    margin: 0 auto;
+    height: auto;
+}
+
+/* authentication type */
+
+
+
+/* mainform style */
+
+.container .mainForm {
+    text-align: center;
+}
+
+.container .mainForm h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+/* form style */
+.container .mainForm form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    width: 55%;
+}
+
+.container .mainForm form label {
+    font-size: 1.3rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.container .mainForm form input {
+    padding: 1.8rem 1.3rem;
+    border: 0.1rem solid #2d2d2d;
+    margin-bottom: 1.8rem;
+}
+
+.container .mainForm form input:focus {
+    box-shadow: inset 0 0 0.6rem rgba(27, 152, 255, 0.726);
+}
+
+/* submit style */
+.container .mainForm form button {
+    padding: 1.2rem 1rem;
+    width: 90%;
+    align-self: center;
+    background-color: #2d2d2d ;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s;
+}
+
+.container .mainForm form button:hover {
+    background-color: #666;
+    opacity: 0.8;
+}
+
+.container .mainForm form button:disabled {
+    background-color: #666;
+}
+
+.container .mainForm form button:disabled:hover {  
+    background-color: #888;
+    opacity: 0.5;
+}
+
+/* forgot password  */
+
+.container .mainForm p a {
+    color: #2d2d2d;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.container .mainForm p a:hover {
+    color: #777;
+    border-bottom: 0.1rem solid #2d2d2d;
+    padding: 0.5rem 0;
+}
+
+
+

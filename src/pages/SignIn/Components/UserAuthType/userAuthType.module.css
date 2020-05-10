@@ -1,0 +1,46 @@
+.authType {
+    display: flex;
+    margin-bottom:4rem;
+    padding: 0 2rem;
+}
+
+.authType span {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.authType span.selected {
+    border-top: 1px solid #2d2d2d;
+    border-left: 1px solid #2d2d2d;
+    border-right: 1px solid #2d2d2d;
+    padding: 2rem;
+}
+
+.authType span.selected a {
+    color: #2d2d2d;
+    cursor: text;
+}
+
+.authType span.unselected {
+    border-bottom: 1px solid  #2d2d2d;
+    transition: all 0.2s;
+}
+
+
+.authType span.unselected a {
+    color: #7a7a7a;
+}
+.authType span.unselected a:hover {
+    color: #aaa;
+}
+
+
+.authType a{
+    font-size: 1.3rem;
+    align-self: center;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}

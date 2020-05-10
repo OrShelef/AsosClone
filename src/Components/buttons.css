@@ -21,7 +21,7 @@
     transition: all .6s;
 
 }
-.btn.invert:hover {
+.btn.invert:hover:not(.btn-outline){
     background-color: var(--primary);
     color: var(--foreground);
 }
@@ -29,9 +29,10 @@
     background-color: transparent;
     border: 1px solid #fff;
     padding: 10px 60px;
+    color: #2d2d2d;
 }
 
-.btn-outline:hover {
+.btn-outline:hover:not(.invert) {
     background-color: var(--foreground);
     color: var(--primary);
     box-shadow: 10px 10px 15px rgba(0, 0, 0, .2);
@@ -44,10 +45,16 @@
     color: var(--primary);
     outline: none;
 }
-.btn-outline.primary:hover{
+.btn-outline.primary:hover:not(.invert){
     border: 1px solid var(--foreground);
     background-color: var(--primary);
     color: var(--foreground);
+}
+
+.btn-outline.btn.invert{
+    border: 2px solid rgba(102, 102, 102, 0.226);
+    border-radius: 0px;
+    letter-spacing: .3rem;
 }
 
 button i{

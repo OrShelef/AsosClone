@@ -3,6 +3,7 @@ import React from 'react'
 import classes from  './clothing.module.css';
 import AvatarList from '../Components/avatarList';
 import Avatar from '../Components/avatar';
+import {Link} from 'react-router-dom';
 
 const ClothingMenu=(props)=>
 {  
@@ -24,7 +25,7 @@ const ClothingMenu=(props)=>
       <div>
         <h1 className="mega-menu-item-header">SHOP BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
+          {items.map(item=> <li key={item}><Link to={'/man/shopByProduct/Clothing'}>{item}</Link></li>)}
         </ul>
       </div>
       <div id={classes.column}>

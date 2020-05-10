@@ -1,6 +1,7 @@
 import * as types from '../types';
 
-const megaMenuReducer=(state={},action)=>{
+const megaMenuReducer=(state={},action)=>
+{
     switch(action.type)
     {
         case types.MEGAMENU_GET_SELECTED:

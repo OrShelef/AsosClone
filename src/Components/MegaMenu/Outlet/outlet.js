@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from  './outlet.module.css';
 import Thumbnail from '../Components/thumbnail';
+import {Link} from 'react-router-dom'
 
 
 
@@ -19,7 +20,8 @@ const OutletMenu=(props)=>
       <div>
         <h1 className="mega-menu-item-header">SHOP BY PRODUCT</h1>
         <ul className={`mega-menu-item-list ${classes.list}`}>
-        {items.map(item=> <li key={item}><a href={`#${item}`}>{item}</a></li>)}
+          {items.map(item=> <li key={item}><Link to='/man/shopByProduct/Outlet'>{item}</Link></li>)}
+
         </ul>
       </div>
      
