@@ -88,6 +88,11 @@ app.get('/api/v1/Department',async (req,res)=>
 {
     res.send(await departmentService.GetAll(client));
 });
+
+app.get('/api/v1/SubMenu/:id',async (req,res)=>
+{
+    res.send(await departmentService.GetSubDepartment(client,req.params.id));
+});
 app.get('/api/v1/Filters/:department',async (req,res)=>
 {
     res.send(await productsService.GetFilters(client,req.params.department));

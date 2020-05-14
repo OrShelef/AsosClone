@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import classes from  './accessories.module.css';
 import Thumbnail from '../Components/thumbnail';
 import AvatarList from '../Components/avatarList';
 import {Link} from 'react-router-dom'
-
+import axios from 'axios';
 const AccessoriesMenu=(props)=>
 {  
   
@@ -16,6 +16,13 @@ const AccessoriesMenu=(props)=>
     {image:'https://images.asos-media.com/navigation/mw_shoes_sbb_timberland_5wl_1616270?&$n_240w$',text:'Sekonda'},
     {image:'https://images.asos-media.com/navigation/mw_shoes_sbb_walklondon_5wl_1602748?&$n_240w$',text:'Twisted Tailor'},
   ]
+
+  useEffect(() => {
+    
+    return () => {
+      axios.get(`${process.env.REACT_APP_API}/Filters/${props.depName}`)
+    }
+  }, []);
  const items=['View all','New in','Bags','Belts','Caps & Hats','Gifts','Jewellery','Scarves','Socks','Sunglasses','Ties','Wallets','Watches'];
 
  return(

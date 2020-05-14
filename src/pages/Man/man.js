@@ -1,13 +1,12 @@
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import classes  from './man.module.css';
 import HeaderBackground from '../../Components/Text/text';
 import {bannerBG} from '../../assets/images';
 import { SimpleCard, CardMenuItem } from '../../Components/MegaMenu/Components/card';
-import {FlatButton, RaisedButton, LinkFlatButton} from '../../Components/buttons';
-import {Route} from 'react-router-dom';
-import ShopByProduct from '../Man/ShopByProduct/shopByProduct';
-const Man=(props)=>{
+import {FlatButton, LinkFlatButton} from '../../Components/buttons';
+
+const Man=()=>{
     
     return (
     <div className={`${classes.main} col`}>
@@ -28,7 +27,6 @@ const Man=(props)=>{
           UP TO 70% OFF                                                                                      
         </HeaderBackground>
 
-      
         <div className={` ${classes.card_list}`}>
             <SimpleCard text="SHOES & TRAINERS" image="https://images.asos-media.com/products/nike-air-max-270-react-trainers-in-off-white/13337204-1-offwhite?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
             <SimpleCard text="T-SHIRTS & VESTS" image="https://images.asos-media.com/products/asos-design-organic-oversized-t-shirt-with-half-sleeve-and-vertical-colourblock-in-navy/13650041-1-navy?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
@@ -37,6 +35,7 @@ const Man=(props)=>{
             <SimpleCard text="HOODIES & SWEATSHIRTS" image="https://images.asos-media.com/products/asos-design-oversized-hoodie-with-colour-blocking-in-navy-grey-burgundy/14030340-1-navy?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
             <SimpleCard text="JEANS" image="https://images.asos-media.com/products/asos-design-tapered-jeans-in-vintage-mid-wash-blue-with-rips/13229489-1-midwashvintage?$XXL$&wid=513&fit=constrain&hei=236&wid=185&bgc=000000"/>
         </div>
+      
         <div className={classes.big_banner_button}>
         <LinkFlatButton Link="man/shopByProduct" color="invert">View All</LinkFlatButton>
         <p>Limited time only. Selected styles marked down on site.</p>
