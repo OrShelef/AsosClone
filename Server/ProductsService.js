@@ -1,71 +1,27 @@
 
-
-const json= require('jsonfile');
 const utils=require('./utils');
-
-
-exports.GetAllProducts=async ()=>{
+var ObjectId = require('mongodb').ObjectID;
+const type="Products";
+exports.GetAllProducts=async ()=>
+{
    
-    
-    return await  utils.getAll();
 }
 
-exports.GetAll=(dep,{offset=0,limit=72})=>{
-    
-    
-    return new Promise((res,rej)=>{
-        json.readFile(utils.getFileName(dep),(err,data)=>{
-           
-            if(err) rej(err);
-
-            else{
-              
-              
-                
-                res({products:data.products.slice(offset*72,offset*72+72),total:data.products.length});
-            }
-        })
-    });
+exports.GetAll=(client,depId,{offset=0,limit=72})=>
+{ 
+    return utils.GetById(client,type,{DepartmentID:depId},'Products not found');
 }
-exports.Get=(id,dep)=>{
-  
-    return new Promise((res,rej)=>{
-        json.readFile(utils.getFileName(dep),(err,data)=>{
-
-            if(err) rej(err);
-
-            else{
-           
-              
-                res(data.products.filter(product=>product.id==id));
-            }
-        })
-    });
+exports.Get=(client,id)=>
+{
+    return utils.GetById(client,type,{Id:id},'Product not found',false);
 }
 
-exports.GetByBrand=(brand,dep)=>{
-    return new Promise((res,rej)=>{
-        json.readFile(utils.getFileName(dep),(err,data)=>{
-
-            if(err) rej(err);
-
-            else{
-           
-              
-                res(data.products.filter(product=>product.brandName.toLowerCase().includes(brand.toLowerCase())));
-            }
-        })
-    });
+exports.GetByBrand=(brand,dep)=>
+{
+   return {};
 }
 
-exports.GetFilters = (dep) =>{
-    return new Promise((res,rej)=>{
-        json.readFile(utils.getFileName(dep),(error,data)=>{
-            if(error)
-                rej(error);
-            else {
-                res(data.facets);
-            }
-        })
-    })
+exports.GetFilters = (client,id) =>
+{ 
+    return utils.GetById(client,'SubMenu',{menuId:id},'Submenu not found',false);
 }
