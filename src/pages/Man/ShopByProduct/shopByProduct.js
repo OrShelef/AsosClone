@@ -61,10 +61,10 @@ const ShopByProduct= (props)=>{
     return(
         <div >
             <BreadCrumbs/>
-            <PageDescription header= {`Men's ${props.match.params.depName}`}  description={text}/>
-            <Pills items={pills}/>
+            <PageDescription header= {`Men's ${props.match.params.depName}`}  description={'text'}/>
+            <Pills items={[]}/>
             <Filters depName={props.match.params.depName}/>
-            <Items items={products}/>
+            <Items items={[]}/>
             <LoadMore nextPageClick={nextPageHandler} items={products.length} total={totalProducts}/>
         </div>
     )

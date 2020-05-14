@@ -29,4 +29,5 @@ export const PRODUCTS_GET='PRODUCTS_GET';
 export const FILTERS_SET='FILTERS_SET';
 
 
+export const DEPARTMENT_GET='DEPARTMENT_GET';
 
