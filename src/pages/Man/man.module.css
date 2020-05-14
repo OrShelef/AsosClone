@@ -25,29 +25,29 @@
 
 .card_list{
     
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
     margin: 0 auto;
 }
 
 .card_list_4{
     
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+    display: flex;
+    flex-wrap: wrap;
     width: 80%;
     margin: 5rem auto;
-    column-gap: 2rem;
 }
 
 .card_list_2{
     
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
+    flex-wrap: wrap;
     width: 75%;
     margin: 5rem auto;
-    column-gap: 2rem;
 }
+
+
 
 .card_list_4 div{
    
@@ -63,7 +63,7 @@
     font-size: 3rem;
 }
 .card_list_4 :not(:last-child){
-    margin-right: 4rem;
+    margin-right: 1rem;
 }
 
 .card_list img{
@@ -86,7 +86,7 @@
 
 
 .img_banner{
-    width: 80%;
+    width: 100%;
     margin:5rem auto;
     position: relative;
 
@@ -115,8 +115,13 @@
 }
 
 .brands{
+  
     width: 80%;
     margin: 5rem auto;
+}
+
+.brands_list{
+    flex-flow: wrap;
 }
 
 .brands h1{
@@ -138,4 +143,86 @@
 .brands_list:hover a>img:not(:hover){
 
    opacity: .5;
+}
+
+@media only screen and (min-width:1024px)
+{
+    .brands_list a{
+        width: calc(100% / 6 ) ;
+    }
+    .card_list_4>div{
+        width: calc(100% / 4 - 1rem) ;
+    }   
+    .simple_card_text{
+        height:100%;
+    } 
+}
+
+@media only screen and (min-width:500px) and (max-width:1023px)
+{
+    .card_list_2 button{
+    width: 80% !important;
+    }
+    .card_list_4>div{
+        width: calc(100% / 2 - 1rem);
+    }  
+    .card_list_4 :not(:last-child){
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width:499px)
+{ 
+    .card_list_2 {
+   width: 100% !important;
+   margin: 0 !important;
+    }
+    .card_list_2>div>div{
+        padding: 0 !important;
+    }
+    .card_list_2>div>div h3{
+        font-size: 2rem;
+    }
+     .card_list_2 button
+     {
+        width: 80% !important;
+        margin-bottom: 1rem !important;
+        font-size: 1.5rem;
+    }
+    .card_list_4>div{
+        width: calc(100% );
+        margin: 0 !important;
+  
+    } 
+     
+    .card_list_4{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:768px)
+{
+    .card_list_2>div{
+        width: 50%; 
+    }
+    .img_banner{
+        max-width: 95rem;
+    }
+}
+
+
+@media only screen and (max-width:767px)
+{
+    .img_banner{
+        margin: 0;
+        
+    }
+    .img_banner h1{
+        font-size: 3rem;
+        margin: 0;
+    }
+    .img_banner button{
+       width: 100% !important;
+       font-size: 1.4rem !important;
+    }
 }

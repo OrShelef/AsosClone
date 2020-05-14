@@ -6,6 +6,9 @@ const filtersReducer=(state={comboBoxes:[]},action)=>
     switch (action.type) {
         case types.FILTERS_SET:
         {
+            if(!action.payload){
+                return {comboBoxes:[]};
+            }
             const comboboxes = [...state.comboBoxes];
             const isExist = comboboxes.findIndex(combo=>combo.name===action.payload.name);
             if(isExist!=-1)
@@ -13,10 +16,9 @@ const filtersReducer=(state={comboBoxes:[]},action)=>
                 comboboxes.splice(isExist,1);
             }
             comboboxes.push(action.payload)
-            state={comboBoxes:[...comboboxes]}
-            console.log(state.comboBoxes);
+           
             
-            return state;
+            return {comboBoxes:[...comboboxes]};
         }
     
         default:

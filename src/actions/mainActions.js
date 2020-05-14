@@ -69,4 +69,11 @@ export const SetSideBar = value=>
     }
 }
 
+export const SetFilterSideBar = value=> 
+{
+    return {
+        type:types.MAIN_SET_FILTER_SIDE_BAR,
+        payload:value
+    }
+}
 

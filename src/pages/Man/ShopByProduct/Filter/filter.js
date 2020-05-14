@@ -5,6 +5,7 @@ import SaveFilterState from '../../../../actions/filtersActions';
 import axios from 'axios';
 import path from 'path';
 import RangeSlider from '../../../../Components/RangeSlider/rangeSlider';
+import { SetFilterSideBar } from '../../../../actions/mainActions';
 
 const Filter=({name,items,multiSelection=false})=>
 {
@@ -45,7 +46,7 @@ const Filter=({name,items,multiSelection=false})=>
           }
           function updateWindowDimensions(event){
             setWindowSize(window.innerWidth);
-            console.log(window.innerWidth);
+            
             
           }
           window.addEventListener("resize", updateWindowDimensions);
@@ -90,26 +91,39 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
 
     const selectedItemHandler = (index) =>
     {
-       
+       setTimeout(() => {
+           
         dispatch(SaveFilterState({name,selected:[{...items[index]}]}))
-        
+     
+       }, 0)
+          
         setSelectedItem({...items[index]})
-        console.log(SelectedItem);
+      
     }
 
     const itemClickedHandler= (index) => {
 
         const selectedItems=[...SelectedItems];
 
+       
         if(selectedItems.find(item=>item.name==items[index].name))
         {
-            selectedItems.splice(selectedItems.findIndex(x=>x.name==items[index].name),1)
-            setSelectedItems(selectedItems);
+            selectedItems.splice(selectedItems.findIndex(x=>x.name==items[index].name),1);
+          
+            if(setSelectedItems)
+                 setSelectedItems(prevstate=>[...selectedItems]);
         }
         else
-            setSelectedItems([...selectedItems,items[index]]);
-
+          {  
+            selectedItems.push(items[index]);
+            if(setSelectedItems)
+             setSelectedItems(prevstate=>[...selectedItems]);
+          }
+        
         dispatch(SaveFilterState({name,selected:[...selectedItems]}))
+    
+            
+            
 
     }
     
@@ -125,11 +139,11 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
       
     }
    
-    console.log(name);
+   
     
     if(name.includes("price"))
     {
-        return (  <div   className={classes.container} style={{left:direction>-1?`${-direction}px`:'0',minHeight:'300px'}}>
+        return (  <div   className={classes.container} style={{left: direction && direction>-1?`${-direction}px`:'0',minHeight:'300px'}}>
             <div>
                 <div>
                      <p>{SelectedItems.length} selected</p>
@@ -145,7 +159,7 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
     }
     if(multiSelection)
     {
-      return (  <div   className={classes.container} style={{left:direction>-1?`${-direction}px`:'0',minHeight:'300px'}}>
+      return (  <div   className={classes.container} style={{left: direction && direction>-1?`${-direction}px`:'0',minHeight:'300px'}}>
             <div>
                 <div>
                      <p>{SelectedItems.length} selected</p>
@@ -155,7 +169,7 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
                 <button onClick={btnAction}>{btnName}</button>
             </div>
 
-            <ul style={{height:`${height}px`,minHeight:'300px'}}>
+            <ul style={{height:height&&(`${height}px`),minHeight:'300px'}}>
                 {items.map((item,index)=><ComboboxItem selected={SelectedItems.find(x=>x.id==item.id)} clicked={()=>itemClickedHandler(index)} name={item.name} count={item.count} />)}
             </ul>
         </div>
@@ -166,7 +180,7 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
      
        
     return (
-        <div  className={classes.container} style={{left:direction>-1?`${-direction}px`:'0'}}>
+        <div  className={classes.container} style={{left: direction && direction>-1?`${-direction}px`:'0'}}>
              <ul style={{height:`${height}px`,minHeight:'300px'}}>
                 {items.map((item,index)=><RadioButtonItem selected={SelectedItem.name==item.name} clicked={()=>selectedItemHandler(index)} name={item.name} count={item.count} />)}
             </ul>
@@ -204,7 +218,8 @@ const RadioButtonItem = props => {
 const Filters=(props)=>{
 
 
-
+   const main =useSelector(s=>s.main);
+   const dispatch=useDispatch();
    const [filters, setFilters] = useState([])
    
     useEffect(() => {
@@ -243,7 +258,7 @@ const Filters=(props)=>{
             </div>
            
           
-            <button>FILTER</button>
+            <button onClick={()=>dispatch(SetFilterSideBar(true))}>FILTER</button>
         </div>
         <div className={classes.main}>
             {filters.map(filter=><Filter key={filter.id} multiSelection={filter.isMultiselection} items ={filter.items} name={filter.name}/>)}
@@ -252,4 +267,4 @@ const Filters=(props)=>{
             )
 }
 
-export { Filters,Filter}
+export { Filters,Filter,ComboboxContainer}

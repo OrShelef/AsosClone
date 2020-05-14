@@ -30,3 +30,10 @@
 .main ul li:last-child{
     opacity: .7;
 }
+
+
+@media only screen and (max-width:768px){
+    .main{
+        display: none;
+    }
+}

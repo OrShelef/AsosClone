@@ -141,3 +141,10 @@
         display: none;
     }  
 }
+
+@media only screen and (max-width:499px)
+{
+    .icon_buttons button:nth-child(2){
+        display: none;
+    }
+}

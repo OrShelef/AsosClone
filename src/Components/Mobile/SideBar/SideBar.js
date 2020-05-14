@@ -50,16 +50,19 @@ const SideBar = () =>
                 <FlatButton color="invert">Women</FlatButton>
                 <FlatButton color="invert">Men</FlatButton>
             </div>
-            <ul>
-            {items.map((item,index)=>{
-                return (
-                    <li className={classes.list_item}>
-                        <h1>{item.name}</h1>
-                        <img src={man_images[index]}/>
-                    </li>
-                )
-            })}
-        </ul>     
+            <div>
+                 <ul>
+                    {items.map((item,index)=>{
+                        return (
+                            <li className={classes.list_item}>
+                                <h1>{item.name}</h1>
+                                <img src={man_images[index]}/>
+                            </li>
+                        )
+                    })}
+                 </ul>   
+            </div>
+             
             </div>
           
         </div>

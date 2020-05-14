@@ -1,17 +1,18 @@
 
 
 .main{
-    display: grid;
-    grid-template-rows: 3fr auto;
+    display: flex;
+    flex-direction: column;
     padding: 2rem;
     cursor: pointer;
 }
 
 .simple_card
-{
+{   
     display: flex;
     flex-direction: column;
-    padding: 1.25rem;
+    padding: 1.5rem;
+    width: 100%;
     cursor: pointer; 
     transition: all .4s;
 }
@@ -20,11 +21,8 @@
 .card_img{
     position: relative;
 }
-.card_img>img{
+.card_img img{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-  
 }
 
 .card_img h1{
@@ -38,6 +36,7 @@
     font-weight: bold;
     padding: 2rem;
     color: white;
+    flex: 1 0 auto;
 }
 
 .text{
@@ -53,21 +52,51 @@
 
 .simple_card_image{
 
-    height: 100%;
-    max-height: 80%;
-}
+    width: 100%;
+   
 
+}
+.simple_card_text{
+    height: auto;
+}
 .simple_card_text>h3{
     font-size: 1.2rem;
     color: var(--primary-light);
     font-weight: 700;
     padding: 2rem 0;
     height: 100%;
-    max-height: 20%;
+   
     background-color:white;
     
 }
 
 .simple_card:hover{
     transform: translateY(-3px) scale(1.02);
+}
+
+@media only screen and (min-width:1024px)
+{
+    
+    .simple_card{
+        width: calc(100% / 6);
+    }   
+    .simple_card_text{
+        height:100%;
+    } 
+}
+
+@media only screen and (min-width:768px) and (max-width:1023px)
+{
+    .simple_card{
+        width: calc(100% / 3);
+    }  
+   
+}
+
+@media only screen and (min-width:500px) and (max-width:767px)
+{
+    .simple_card{
+        width: calc(100% / 2);
+    }  
+     
 }

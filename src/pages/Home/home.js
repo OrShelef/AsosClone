@@ -5,7 +5,7 @@ import LandingPage from '../landingPage/landingPage';
 import classes from './home.module.css';
 import {useSelector,useDispatch} from 'react-redux';
 import Man from '../Man/man';
-import { SetLocation, SetNavbar, SetHeaderAndFooter, SetLoading } from '../../actions/mainActions';
+import { SetLocation, SetNavbar, SetHeaderAndFooter, SetLoading, SetOverlay, SetSideBar, SetFilterSideBar } from '../../actions/mainActions';
 import Footer from '../../Components/Footer/footer'
 import ShopByProduct from '../Man/ShopByProduct/shopByProduct';
 import ItemPreview from '../itemPreview/itemPreview';
@@ -15,6 +15,8 @@ import MyAccount from '../MyAccount/myAccount';
 import Popup from '../../Components/Popup/Popup';
 import Toast from '../../Components/Toast/Toast';
 import SideBar from '../../Components/Mobile/SideBar/SideBar';
+import { SetIsOpen } from '../../actions/dropdownActions';
+import FilterSideBar from '../../Components/Mobile/FilterSideBar/filterSideBar';
 
 
 const Home=(props)=> 
@@ -40,6 +42,12 @@ const Home=(props)=>
       }, []);
     const main=useSelector(state=>state.main);
     const dispatch=useDispatch();
+    const onOverlayClick=()=>{
+        dispatch(SetOverlay(false));
+        dispatch(SetSideBar(false));
+        dispatch(SetFilterSideBar(false));
+        dispatch(SetIsOpen(false));
+    }
     const check=()=>{
         console.log("dd");
         
@@ -49,10 +57,12 @@ const Home=(props)=>
             <div className="col">  
                 <Navbar/>
                 <div >
-                    <span   className={main.isOverlayOpen? classes.main:''}/>
+                    
+                    <span  onClick={onOverlayClick} className={main.isOverlayOpen? classes.main:''}/>
                     <Popup/>
                     <Toast/>
                    <SideBar/>
+                   <FilterSideBar/>
                 <Switch>               
                     <Route path="/Home">
                         <LandingPage/>

@@ -1,8 +1,8 @@
 .main {
     display: flex;
     flex-direction: row;
-  
-  
+    height: fit-content;
+   padding: 0 1rem;
 }
 
 .imageList{
@@ -12,11 +12,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    
 }
 
 .imageList ul {
     list-style: none;
+    margin-top: 1rem;
 
 }
 
@@ -74,4 +75,41 @@
     width: calc(100% - 5rem);
     height: 100%;
 object-fit: cover;
+}
+
+.icon_mobile{
+    display: none;
+}
+
+@media (max-width:720px)
+{
+    .imageList{
+        display: none;
+    }
+
+    .main{
+        padding: 0;
+        flex-direction: column;
+    }
+    .icon_mobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 2rem 0;
+        background-color: #eee;
+        width: 100%;
+        text-align: center;
+    }
+
+    .icon_mobile i{
+        color: transparent;
+       margin: 0 !important;
+       margin-right: 1rem !important;
+    }
+
+    .main video{
+        width: 100%;
+    }
+
+    
 }

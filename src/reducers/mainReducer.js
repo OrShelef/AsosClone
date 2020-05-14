@@ -13,7 +13,8 @@ const mainReducer=(
     popup:{isOpen:false,width:'50vw',height:'50vh',content:(props)=><Fragment/>},
     toast:{isOpen:false,timeout:2000,text:'',backgroundColor:'#2d2d2d',color:'white',icon:null},
     isLoading:false,
-    isSideBarOpen:false
+    isSideBarOpen:false,
+    isFilterOpen:false
     },action)=>{
   
     switch(action.type)
@@ -56,6 +57,14 @@ const mainReducer=(
                 else
                      document.body.classList.remove('disable-scroll');
             return {...state,isSideBarOpen:action.payload}
+        } 
+        case types.MAIN_SET_FILTER_SIDE_BAR:
+            {
+                if(action.payload)
+                     document.body.classList.add('disable-scroll');
+                else
+                     document.body.classList.remove('disable-scroll');
+            return {...state,isFilterOpen:action.payload}
         } 
         default:return state;
     }

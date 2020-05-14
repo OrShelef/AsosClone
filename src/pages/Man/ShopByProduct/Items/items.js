@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import classes from './items.module.css'
 import { Link ,useRouteMatch} from 'react-router-dom';
 import Image from '../../../../Components/Image';
 
-const Item = ({product}) =>  {
+const Item =({product}) =>  {
 
   const [isFav,setIsFav]=useState(false);
   let { path, url } = useRouteMatch();
@@ -12,7 +12,7 @@ const Item = ({product}) =>  {
     e.preventDefault();
     setIsFav(true);
   }
-  
+ 
   if(!product) return <div></div>
 
  
@@ -29,7 +29,7 @@ const Item = ({product}) =>  {
             <h2>{product.price.current.text}</h2>
         </Link>
   );
-}
+};
 
 const Items = props => {
 
@@ -44,6 +44,8 @@ const Items = props => {
     </div>
    );
 }
+
+
 
 export default Items;
 

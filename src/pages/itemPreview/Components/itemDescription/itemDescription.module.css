@@ -44,3 +44,13 @@
 .main .section3 p {
     margin-bottom: 1.5rem;
 }
+
+
+@media (max-width:720px)
+{
+    .main{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem .3rem;
+    }
+}

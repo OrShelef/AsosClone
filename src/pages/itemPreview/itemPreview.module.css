@@ -1,13 +1,14 @@
 .main {
     display: flex;
-    
+   
     flex-direction: column;
 }
 
 .container{
     display: flex;
     align-self: center;
-    width: 60vw;
+    width: 100%;
+    max-width: 95rem;
 }
 
 .container+div{
@@ -175,4 +176,23 @@
 }
 .sizing span{
     margin-bottom: 1rem;
+}
+
+
+@media (max-width:720px)
+{
+        .container{
+            flex-direction: column;
+        }
+
+        .product_info{
+            width: 100%;
+            padding: 1rem .3rem;
+        }
+
+        
+        .container+div{
+            width: 100%;
+               padding: 1rem; 
+        }
 }

@@ -329,5 +329,45 @@
     .main_mobile option{
         padding: .5rem;
     }
+
+    .container>div{
+        display: none;
+    }
+
+    .container ul{
+        height: 100%;
+        margin: 0 !important;
+       
+    }
+    .container{
+        box-shadow: none;
+        overflow-y: auto;
+        height: 100% !important;
+    }
+    .container ul *{
+        box-shadow: none !important ;
+        margin-bottom: 0 !important;
+       
+    }
+    .container .selected{
+       
+       background-color: #fff;
+        font-weight: 700;
+    }
     
-}
+    .combobox_item.selected span{
+        position: relative;
+    }
+    .combobox_item.selected span>p{
+        color: #9b9b9b;
+        font-weight: 900;
+       
+    }
+    .combobox_item.selected span>p::after{
+        content: '\f00c';
+        position: absolute;
+        top: 5px;
+        right: 6.5rem;
+        font-family: "Font Awesome 5 Free";
+    }
+}    

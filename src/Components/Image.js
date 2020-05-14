@@ -1,12 +1,10 @@
 
 
-import React,{useState, useRef} from 'react'
+import React,{useState} from 'react'
 
 const Image = ({src,alt="",key=Math.random()}) => 
 {
     const [loading, setLoading] = useState(true);
-    const counter = useRef(0);
-    
     return (
         <React.Fragment>
         <div className="center" style={{display: loading ? "block" : "none"}}>
@@ -21,4 +19,4 @@ const Image = ({src,alt="",key=Math.random()}) =>
     )
 }
 
-export default Image;
+export default React.memo(Image);

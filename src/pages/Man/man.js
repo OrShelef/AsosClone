@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import classes  from './man.module.css';
 import HeaderBackground from '../../Components/Text/text';
 import {bannerBG} from '../../assets/images';
@@ -56,10 +56,10 @@ const Man=(props)=>{
         </div>
     
         <div className={` ${classes.card_list_4}`}>
-            <CardMenuItem text="T-SHIRT TIME" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay1.jpg"/>
-            <CardMenuItem text="LOUNGEWEAR" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay2.jpg"/>
-            <CardMenuItem text="SNEAKER BRANDS" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay3.jpg"/>
-            <CardMenuItem text="SMART TOPS" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay4.jpg"/>
+            <SimpleCard text="T-SHIRT TIME" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay1.jpg"/>
+            <SimpleCard text="LOUNGEWEAR" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay2.jpg"/>
+            <SimpleCard text="SNEAKER BRANDS" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay3.jpg"/>
+            <SimpleCard text="SMART TOPS" image="https://content.asos-media.com/-/media/homepages/mw/2020/04-gbl/13/pgeimagedisplay4.jpg"/>
         </div>
     
     <div className={classes.card_list_2}>

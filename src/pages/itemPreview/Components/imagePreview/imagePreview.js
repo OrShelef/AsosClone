@@ -70,7 +70,11 @@ const ImagePreview = ({product}) =>
                     <p>Share</p>
                 </div>
             </div>
-
+       
+        <div onClick={()=>setIsVideo(!isVideo)} className={`${classes.iconButton} ${classes.icon_mobile}`}>
+                        <i className="fas fa-play"></i>
+                        <p>Video</p>
+        </div>
           { !isVideo? <ImageSlider render={render} direction={direction} onClick={onClick}  CurrentImage={CurrentImage}/>:
             <video autoPlay="autoPlay" loop={true}>
                 <source src="https://video.asos-media.com/products/ASOS/_media_/ba4/ba43a8b1-b031-4f55-b86d-253a05ff36a0.mp4" type="video/mp4">

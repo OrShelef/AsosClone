@@ -129,11 +129,15 @@
     
 }
 
-@media (min-width: 500px) and (max-width:767px)
+@media (max-width:767px)
 {
     .items {
         grid-template-columns: repeat(2,1fr);
     }   
+    .main p{
+        font-size: 1.3rem;
+        overflow: hidden;
+    }
 }
 @keyframes heartAnimation{
 

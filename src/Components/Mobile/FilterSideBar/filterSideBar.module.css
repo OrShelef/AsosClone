@@ -1,0 +1,303 @@
+
+.main{
+    transition:  all .5s ease;
+    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 100000000000;
+    width: 32rem;
+    background-color: #eee;
+}
+
+.main > div{
+    transition: all .225s ease;
+}
+.main>i+div{
+    background-color: #fff;
+    width: 32rem;
+}
+.main ul{
+    overflow-y: auto;
+    margin: 1.6rem 0;
+    background-color: #fff;
+    
+  
+}
+
+.main ul+div{
+    
+    background-color: #fff;
+    position: relative;
+    height: 10rem;
+  
+    
+}
+.main ul+div button{
+    border-radius: 0;
+    position: absolute;
+    top: 0px;
+    margin: 2rem auto;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);  
+      font-weight: 700;
+    
+    
+}
+.sub_menu > div button {
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    
+    width:12rem;
+    height: 4rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    transition: all 0.3s;
+    background-color: transparent;
+    color: #999;
+    text-align: center;
+}
+
+.container>div button i{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.container > div button i p{
+    margin-top: .4rem;
+    margin-left: .3rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    place-content: space-between;
+}
+.main ul li{
+    padding: 2rem ;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #666;
+    cursor: pointer;
+}
+
+.main ul li:not(:last-child)
+{
+    border-bottom: 1px solid #eee;
+}
+
+.main:not(.open) i{
+    display: none;
+}
+
+.main.open{
+    right: 32rem;
+}
+
+.main i{
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 32rem;
+    width: 5rem;
+    padding: 1rem;
+    
+}
+.main >div >.tab_headers{
+    display: flex;
+    place-content: space-between;
+}
+.tab_headers{
+    background-color: #fff;
+    color: black;
+    font-size: 1.6rem;
+    padding: 2rem;
+    font-weight: 900;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+
+}
+.tab_headers p{
+    font-size: 1.3rem;
+    margin-top: .3rem;
+    color: #555;
+}
+
+.tab_headers i{
+    font-size: 2rem;
+    color: #666;
+    position: unset;
+    padding: 0;
+}
+
+
+
+.tab_headers+div{
+    height: calc(100% - 5rem);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.list_item{
+    background-color: #eeeeee;
+    display: flex;
+    place-content: space-between;
+    padding: 4rem 0;
+    position: relative;
+    margin-left: 2rem;
+    cursor: pointer;
+    transition: all .3s;
+    
+}
+
+.list_item:first-child{
+    padding: 2rem 0;
+}
+
+.list_item h1{
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    columns: #2d2d2d;
+    z-index: 2;
+}
+
+.list_item img{
+    object-fit: cover;
+   
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+   
+}
+.container > div button i>p,.container > div button p{
+    font-size: 1.4rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
+.main ul .list_item
+{
+    margin-top: 1.5rem;
+}
+
+.main ul li p{
+    color: #999;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sub_menu{
+    transition:  all .225s ease;
+    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 100000000010;
+    width: 32rem;
+    background-color: #eee;
+}
+
+
+.sub_menu.sub_open{
+    right: 32rem;
+}
+
+.main.sub_open>div{
+    margin-right: 12.5rem;
+ 
+}
+.main.sub_open .container:not(:last-child){
+    opacity: 0;
+}
+
+.main section{
+    list-style: none;
+    margin:2rem 0;  
+    overflow-y: auto;
+}
+
+.combobox_item:not(:last-child){
+    border-bottom: 1px solid #eee;
+}
+.combobox_item,.radio_button
+ {
+    background-color: #fff;
+    color: #2d2d2d;
+    padding: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+
+.combobox_item:hover,.radio_button:hover  {
+    box-shadow: 0.2rem 0.2rem 0.2rem darkgray;
+}
+
+.combobox_item span, .radio_button span{
+    display: flex;
+    font-size: 1.8rem;
+}
+
+.combobox_item span>p{
+    margin-left: .5rem;
+    align-self: center;
+    font-size: 1.7rem;
+    color: #555;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    color: #9b9b9b;
+}
+
+@media (max-width:767px)
+{
+    .main{
+      display: flex;
+      flex-direction: row;
+      width: 31rem;
+    }
+    .main>i{
+        order: 2;
+        height: 5rem;
+    }
+
+    .main>i+div{
+       
+        width: 31rem;
+    }
+
+    .main.open{
+        right: 31rem;
+    }
+
+    .main i{
+        right: 31rem;
+    }
+
+    .sub_menu{
+        width: 31rem;
+    }
+    .sub_menu.sub_open{
+        right: 31rem;
+    }
+}
