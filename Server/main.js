@@ -28,7 +28,7 @@ client.connect(err =>
 
 
 
-app.get('/',async (req, res) => res.send(await utils.check()));
+app.get('/',async (req, res) => res.send("Hello"));
 
 app.post('/api/v1/signUp',async (req,res)=>
 {
