@@ -6,7 +6,7 @@ const app = express()
 var bodyParser=require("body-parser");
 const Db= require('./DB')
 const cors=require('cors')
-const port = 3333
+const port =process.env.PORT || 3333
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb://admin:admin@cluster0-shard-00-00-avmgf.mongodb.net:27017,cluster0-shard-00-01-avmgf.mongodb.net:27017,cluster0-shard-00-02-avmgf.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 const api_url='https://simplescraper.io/api/6c6Sziukbi4h7AgW7Gd7?apikey=Ui0mBkg76NeBDR9NUG04cz5X5SuVms5H&limit=20'
