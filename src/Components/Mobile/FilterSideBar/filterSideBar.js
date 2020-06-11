@@ -22,17 +22,25 @@ const FilterSideBar = () =>
    
         if(main.isFilterOpen)
          dispatch(SetOverlay(true));
-        console.log(window.location.href.slice(window.location.href.lastIndexOf('/')+1));
+        const menuName=window.location.href.slice(window.location.href.lastIndexOf('/')+1).replace('%20',' ');
         
-         axios.get(`${process.env.REACT_APP_API}/Filters/${window.location.href.slice(window.location.href.lastIndexOf('/')+1)}`)
+        if(!main.currentDep.Menus)return;
+        
+       console.log(main.currentDep.Menus.filter(menu=>menu.Name=menuName)[0]);
+       
+        
+         axios.get(`${process.env.REACT_APP_API}/Filters/${main.currentDep.Menus.filter(menu=>menu.Name=menuName)[0]._id}`)
         .then(result=>{
-            setFilters( [...result.data.map(filter=>
+            let filters=result.data.data.Filters;
+            console.log(filters);
+            
+            setFilters( [...filters.map((filter,index)=>
                 {
                     return {
                         name:filter.name.toLowerCase(),
-                        id:filter.id,
-                        items:filter.facetValues,
-                        isMultiselection:filter.facetType=='TextMultiSelect'
+                        id:filter.name.toLowerCase()+Math.random()+index,
+                        items:filter.items,
+                        isMultiselection:!filter.isSingleSelection
 
                     }
                 })]);
@@ -40,7 +48,7 @@ const FilterSideBar = () =>
         return () => {
         
         }
-    }, [main.isFilterOpen,window.location.href,state])
+    }, [main.isFilterOpen,window.location.href,main.currentDep])
     const onExit=()=>
     {
         dispatch(SetOverlay(false));  

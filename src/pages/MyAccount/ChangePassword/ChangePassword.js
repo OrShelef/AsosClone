@@ -6,6 +6,7 @@ import {useForm} from 'react-hook-form';
 import {useDispatch,useSelector} from 'react-redux';
 import axios from 'axios';
 import { SetCurrentUser } from '../../../actions/mainActions';
+import UserAPI from '../../../Backend/UserAPI';
 
 const ChangePassword = (props) => {
     useEffect(() => {
@@ -29,7 +30,7 @@ const DetailsForm = props =>
     {   
        
         data={...data,_id:main.currentUser._id.$oid};
-        const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,data);
+        const response = await new UserAPI().Update(data);
         if(response.data.status=='ok')
         {
            dispatch(SetCurrentUser(response.data.data));

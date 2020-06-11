@@ -12,6 +12,7 @@ import CheckBox from '../../../Components/checkBoxes';
 import { useHistory } from 'react-router-dom';
 import {creditCard} from '../../../assets/svg';
 import {cards} from '../../../assets/cards';
+import UserAPI from '../../../Backend/UserAPI';
 
 const PaymentMethods = (props) => 
 {
@@ -39,7 +40,8 @@ const PaymentMethods = (props) =>
         
           let copy=JSON.parse(JSON.stringify(main.currentUser));
           copy.paymentMethods.splice(copy.paymentMethods[index],1);
-          const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,copy);          
+         
+          const response = await  new UserAPI().Update(copy);          
           if(response.data.status=='ok')
           {
             dispatch(SetCurrentUser(copy));
@@ -155,10 +157,11 @@ const AddCard=(props)=>
             
             main.currentUser.paymentMethods.push(data);
            
-            const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,main.currentUser);
-            console.log(response.data.status);
+           
+            const response = await  new UserAPI().Update(main.currentUser);
+          
             
-            if(response.data.status=='ok')
+            if(response.data.status=='success')
             {
                dispatch(SetCurrentUser(response.data.data));
                history.push('/MyAccount/PaymentMethods');
@@ -178,10 +181,10 @@ const AddCard=(props)=>
                     <label htmlFor="expDate.month">EXPIRY DATE:</label>
                     <div>
                     <select ref={register({validate:v=>v!=0})} name="expDate.month">
-                          {months.map((item,index)=><option value={index}>{item}</option>)}
+                          {months.map((item,index)=><option key={index} value={index}>{item}</option>)}
                     </select>
                     <select ref={register({validate:v=>v!='Year:'})} name="expDate.year">
-                          {years.map((item,index)=><option value={item}>{item}</option>)}
+                          {years.map((item,index)=><option key={index} value={item}>{item}</option>)}
                     </select>
                     </div>              
                 </div>

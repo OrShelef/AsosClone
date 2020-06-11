@@ -25,6 +25,59 @@ const ListItem=(props)=>{
     </Link>)
 }
 
+const AccountOverview=({main,items,selected,setSelected})=>{
+    return(  <div className="col">
+    <section className={classes.name_section}>
+       <div className={classes.name_circle}>
+       <p>
+           {main.currentUser.firstName.split('')[0]}
+           {main.currentUser.lastName.split('')[0]}
+           </p> 
+       </div>
+       <div>
+           <p>Hi , </p>
+           <br/>
+           <h1>{main.currentUser.firstName} {main.currentUser.lastName}</h1>    
+       </div>
+    </section>
+    <div style={{background:'#ffebcc'}}>
+     <i className="fas fa-info-circle">
+      
+    </i>
+    <p>   We've stopped sending you emails and texts. Please confirm your preferences.</p>
+    </div>
+    <ul>
+        {items.map((item,index)=><ListItem index={index} setSelected={setSelected} selected={selected} item={item} key={index}/>)}
+    </ul>
+</div>)
+}
+const AccountOverviewHeader= ({main,items,selected,setSelected})=> {
+    return(<div className={classes.overview}>
+            <div className={classes.account_overview}>
+                <HeaderBackground className={classes.header} bg="#2d2d2d" color="#fff">
+                WELCOME TO
+                <br/>
+                YOUR ACCOUNT
+                </HeaderBackground>
+            </div>
+            <div id={classes.mobile}><AccountOverview selected={selected} main={main} setSelected={setSelected} items={items}/></div>
+         </div>)
+};
+const MyAccountRouter=({main,items,selected,setSelected})=><Switch >
+                            <Route path="/MyAccount/AccountOverview" render={()=><AccountOverviewHeader selected={selected} main={main} setSelected={setSelected} items={items}/>}/>
+                            <Route path="/MyAccount/MyDetails" render={()=><MyDetails name='My details' icon=' far fa-address-card'/>}/>
+                            <Route path="/MyAccount/MyOrders" render={()=><MyOrders name='My orders' icon='outline fas fa-box'/>}/>
+                            <Route path="/MyAccount/ChangePassword" render={()=><ChangePassword name='Change password' icon='outline fas fa-lock'/>}/>
+                            <Route path="/MyAccount/AddressBook/AddAddress" render={()=><AddAddress/>}/>
+                            <Route path="/MyAccount/AddressBook" render={()=><AddressBook name='Address book' icon='outline fas fa-home'/>}/>
+                            <Route path="/MyAccount/PaymentMethods/AddCard" render={()=><AddCard/>}/>
+                            <Route path="/MyAccount/PaymentMethods" render={()=><PaymentMethods name='Payment methods' icon='outline fas fa-credit-card'/>}/>
+                            <Route path="/MyAccount/ContactPrefrences" render={()=><ContactPrefrences name='Contact prefrences' icon='far fa-comment-dots'/> }/>
+                            <Route path="/MyAccount/SocialAccounts" render={()=><SocialAccounts name='Social accounts' icon='outline fas fa-user-friends'/> }/>
+                            <Route path={`/MyAccount/GiftCards&Vouchers`} render={()=><GiftCardsVouchers name={`Gift cards & vouchers`} icon='outline fas fa-gift'/> }/>
+                            <Redirect path="/MyAccount" to="/MyAccount/AccountOverview"/>
+                         </Switch>
+
 const MyAccount = () =>
  {
     const [selected, setSelected] = useState(0);
@@ -105,25 +158,18 @@ const MyAccount = () =>
 
     useEffect(() => {
        
-        Axios.post(`${process.env.REACT_APP_API}/signIn`,{"email":"ori92623@gmail.com","password":"1234"})
+        /*Axios.post(`${process.env.REACT_APP_API}/signIn`,{"email":"ori92623@gmail.com","password":"1234"})
         .then(res=>{
             dispatch(SetCurrentUser(res.data.data))
 
-        })
+        })*/
         dispatch(SetHeaderAndFooter(false));
         return () => {
             
         }
     }, []);
 
-    const accountOverview=
-    <div className={classes.account_overview}>
-    <HeaderBackground className={classes.header} bg="#2d2d2d" color="#fff">
-    WELCOME TO
-    <br/>
-    YOUR ACCOUNT
-    </HeaderBackground>
-    </div>;
+   
  
   if(!main.currentUser.firstName) return <Fragment/>
     return (
@@ -132,7 +178,7 @@ const MyAccount = () =>
         
         <div className={classes.main}>
             <div>
-            <a href='#'>
+            <a href='/Home'>
                <div className={classes.logo}></div>
             </a>
             <h1>my account</h1>
@@ -141,50 +187,12 @@ const MyAccount = () =>
             </a>
             </div>
             <div className={classes.grid}>
-                <div className="col">
-                     <section className={classes.name_section}>
-                        <div className={classes.name_circle}>
-                        <p>
-                            {main.currentUser.firstName.split('')[0]}
-                            {main.currentUser.lastName.split('')[0]}
-                            </p> 
-                        </div>
-                        <div>
-                            <p>Hi , </p>
-                            <br/>
-                            <h1>{main.currentUser.firstName} {main.currentUser.lastName}</h1>    
-                        </div>
-                     </section>
-                     <div style={{background:'#ffebcc'}}>
-                      <i className="fas fa-info-circle">
-                       
-                     </i>
-                     <p>   We've stopped sending you emails and texts. Please confirm your preferences.</p>
-                     </div>
-                     <ul>
-                         {items.map((item,index)=><ListItem index={index} setSelected={setSelected} selected={selected} item={item} key={index}/>)}
-                     </ul>
-                </div>
+               <div id={classes.desktop_router}>
+               <AccountOverview selected={selected} main={main} setSelected={setSelected} items={items}/>
+               </div>
+               <MyAccountRouter selected={selected} main={main} setSelected={setSelected} items={items}/>
                
-                <Switch>
-                    
-                    
-                   
-                    <Route path="/MyAccount/AccountOverview" render={()=>accountOverview}/>
-                    <Route path="/MyAccount/MyDetails" render={()=><MyDetails name='My details' icon=' far fa-address-card'/>}/>
-                    <Route path="/MyAccount/MyOrders" render={()=><MyOrders name='My orders' icon='outline fas fa-box'/>}/>
-                    <Route path="/MyAccount/ChangePassword" render={()=><ChangePassword name='Change password' icon='outline fas fa-lock'/>}/>
-                    <Route path="/MyAccount/AddressBook/AddAddress" render={()=><AddAddress/>}/>
-                    <Route path="/MyAccount/AddressBook" render={()=><AddressBook name='Address book' icon='outline fas fa-home'/>}/>
-                    <Route path="/MyAccount/PaymentMethods/AddCard" render={()=><AddCard/>}/>
-                    <Route path="/MyAccount/PaymentMethods" render={()=><PaymentMethods name='Payment methods' icon='outline fas fa-credit-card'/>}/>
-                    <Route path="/MyAccount/ContactPrefrences" render={()=><ContactPrefrences name='Contact prefrences' icon='far fa-comment-dots'/> }/>
-                    <Route path="/MyAccount/SocialAccounts" render={()=><SocialAccounts name='Social accounts' icon='outline fas fa-user-friends'/> }/>
-                    <Route path={`/MyAccount/GiftCards&Vouchers`} render={()=><GiftCardsVouchers name={`Gift cards & vouchers`} icon='outline fas fa-gift'/> }/>
-                    <Redirect path="/MyAccount" to="/MyAccount/AccountOverview"/>
-                </Switch>
-               
-              
+            
 
             </div>
         </div>

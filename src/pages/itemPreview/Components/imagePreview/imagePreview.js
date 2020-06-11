@@ -1,28 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import classes from './imagePreview.module.css';
 import ImageSlider from '../../../../Components/ImageSlider/imageSlider';
-
+import axios from 'axios';
 const ImagePreview = ({product}) => 
 {
-    const [CurrentImage, setCurrentImage] = useState(product.images[0].url);
+    const [CurrentImage, setCurrentImage] = useState(product.Image);
     const [render, setRender] = useState(true);
     const [direction, setDirection] = useState(null);
     const [isVideo, setIsVideo] = useState(false);
     const [Index, setIndex] = useState(0);
-    const images=[
-        'https://images.asos-media.com/products/selected-homme-organic-cotton-chino-shorts-in-dusty-pink/14298268-4?$XXL$&wid=513&fit=constrain',
-        'https://images.asos-media.com/products/selected-homme-organic-cotton-chino-shorts-in-dusty-pink/14298268-1-mellowrose?$XXL$&wid=513&fit=constrain',
-        'https://images.asos-media.com/products/selected-homme-organic-cotton-chino-shorts-in-dusty-pink/14298268-3?$XXL$&wid=513&fit=constrain',
-        'https://images.asos-media.com/products/selected-homme-organic-cotton-chino-shorts-in-dusty-pink/14298268-2?$XXL$&wid=513&fit=constrain'
-    ,product.images[0].url]
-
+    useEffect(() => 
+    {
+        if(product.Image)
+        product.Media.Images.push(product.Image);
+        axios.get('https://video.asos-media.com/products/puma-essentials-sweat-with-small-logo-in-navy/12173321-catwalk-AVS.m3u8')
+        .then(res=>
+            {
+                product.Media.Video=res.data.slice(res.data.indexOf('http'),res.data.indexOf('m3u8')+4);
+               
+              
+               
+            }
+            )
+        
+        return () => {
+            
+        }
+    }, [])
     const onClick=(inc=true,index=null)=>
      {
         setIsVideo(false);
         setRender(false);
         if(inc==null && index !=null){
             setIndex(index);
-            setCurrentImage(images[Index%5])
+            setCurrentImage(product.Media.Images[Index%5])
             setTimeout(() => {
                 
               
@@ -44,7 +55,7 @@ const ImagePreview = ({product}) =>
           else
            setIndex(Index-1);
         }
-        setCurrentImage(images[Index%5])
+        setCurrentImage(product.Media.Images[Index%5])
         setTimeout(() => {
             
             setDirection(inc);
@@ -59,7 +70,7 @@ const ImagePreview = ({product}) =>
         <div className={classes.main}>
             <div className={classes.imageList}>
                 <ul>
-                    {images.slice(0,4).map((image,index)=><li  key={image} ><img onClick={()=>onClick(null,index)} src={image} alt={image}/></li>)}
+                    {product.Media.Images.slice(0,4).map((image,index)=><li  key={image} ><img onClick={()=>onClick(null,index)} src={image} alt={image}/></li>)}
                     <div onClick={()=>setIsVideo(!isVideo)} className={classes.iconButton}>
                         <i className="fas fa-play"></i>
                         <p>Video</p>
@@ -77,7 +88,7 @@ const ImagePreview = ({product}) =>
         </div>
           { !isVideo? <ImageSlider render={render} direction={direction} onClick={onClick}  CurrentImage={CurrentImage}/>:
             <video autoPlay="autoPlay" loop={true}>
-                <source src="https://video.asos-media.com/products/ASOS/_media_/ba4/ba43a8b1-b031-4f55-b86d-253a05ff36a0.mp4" type="video/mp4">
+                <source src={product.Media.Video} type="application/x-mpegurl">
                 </source>
             </video>}
         </div>

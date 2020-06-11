@@ -10,6 +10,10 @@
     align-self: flex-start !important;
 }
 
+.main i:first-child{
+    display: none;
+}
+
 .main *{
     color: #2d2d2d;
     align-self: flex-start !important;
@@ -29,4 +33,73 @@
 
 .main :not(:last-child){
     margin-bottom: 2rem;
+}
+
+#mobile{
+    display: none;
+}
+
+#desktop{
+    display: flex;
+}
+
+@media (max-width:768px){
+    .main{
+        flex-direction: row;
+        
+        padding: 1rem;
+    }
+    .main :not(:last-child){
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+
+    .main h1{
+        width: 100%;
+        text-align: center;
+       
+    }
+    .main i:first-child
+    { 
+        display: block;
+    }
+
+    #mobile{
+        display: flex;
+    }
+
+    #mobile button{
+        width: 100% !important;
+        margin:  2rem !important;
+        font-size: 1.4rem;
+    }
+
+    #mobile :not(button){
+        display: none;
+    }
+
+    #mobile~div form div{
+        width: 100% !important  ;
+    }
+   
+
+    #desktop{
+        display: none;
+    }
+}
+
+@media (max-width:500px){
+  
+    .main :not(:last-child){
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+
+    
+
+    .main *{
+        font-size: 1.8rem !important;
+        
+    }
+  
 }

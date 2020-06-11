@@ -178,3 +178,84 @@
 .grid>div{
     align-self: flex-start !important;
 }
+
+
+#desktop_router{
+    height: 100%;
+}
+
+#mobile{
+    display: none;
+}
+
+.overview{
+    height: 100%;
+}
+
+
+
+@media (max-width:1023px)
+{
+    .main {
+        width: 100%;
+    }   
+    
+}
+
+@media (max-width:767px)
+{
+   .main>div:first-child h1{
+       font-size: 1.5rem;
+   }
+
+   .logo{
+        background-size: 10rem;
+        height: 5rem;
+        width: 9rem;
+   }
+
+   #desktop_router{
+        display: none;
+   }
+   #mobile{
+       display: flex;
+   }
+
+   .grid{
+       display: flex !important;
+   }
+
+   .overview{
+       display: flex;
+       flex-direction: column;
+   }
+
+   .header{
+    display: none;
+   }
+
+   .account_overview{
+    background-image: url('https://assets.asosservices.com/myaccount/cd9ba8e6897856c5b7e34b92d14c23d6.jpg');
+    height: 18rem;
+    background-size: 100% 100%;
+   }
+   .name_section{
+       border-top: 4px solid black;
+       flex-direction: column;
+       padding-top: 0;
+   }
+
+   .name_circle+div{
+       text-align: center;
+       padding: 2rem 0;
+   }
+
+   .name_circle{
+       margin-top: -5rem;
+       width: 10rem !important;
+       height: 10rem !important;
+       border:3px white solid;
+   }
+
+
+}

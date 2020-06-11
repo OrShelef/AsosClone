@@ -8,6 +8,7 @@ import {useForm} from 'react-hook-form';
 import {useDispatch,useSelector} from 'react-redux';
 import axios from 'axios';
 import { SetCurrentUser, SetToast } from '../../../actions/mainActions';
+import UserAPI from '../../../Backend/UserAPI';
 
 
 const MyDetails = props => {
@@ -55,9 +56,11 @@ const DetailsForm = props =>
     }
     const onSubmit = async(data) => 
     {   
-    
-        const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,main.currentUser);
-        if(response.data.status=='ok')
+       
+        
+        
+        const response = await new UserAPI().Update(Object.assign(main.currentUser,data));
+        if(response.data.status=='success')
         {
            dispatch(SetCurrentUser(response.data.data));
            dispatch(SetToast({

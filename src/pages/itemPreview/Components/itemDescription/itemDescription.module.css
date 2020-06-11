@@ -30,7 +30,20 @@
 }
 
 .main .productDetails p {
-    font-size: 1rem;
+    font-size: 1.5rem;
+   
+}
+
+.main .productDetails p a{
+    font-size: 1.5rem;
+    border-bottom: 1px solid #666;
+
+    
+}
+
+.main ul{
+    margin-left: 2rem;
+    margin-top: 1rem;
 }
 
 
@@ -38,11 +51,20 @@
     font-size: 1.4rem;
     margin-bottom: 2rem;
 }
+.main .section2 p a{
+    font-size: 1.4rem;
+}
 
 
 
 .main .section3 p {
     margin-bottom: 1.5rem;
+}
+
+.main ul li{
+    font-size: 1.4rem;
+    color: #2d2d2d;
+    padding: .5rem 0;
 }
 
 

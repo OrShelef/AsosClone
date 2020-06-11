@@ -170,7 +170,7 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
             </div>
 
             <ul style={{height:height&&(`${height}px`),minHeight:'300px'}}>
-                {items.map((item,index)=><ComboboxItem selected={SelectedItems.find(x=>x.id==item.id)} clicked={()=>itemClickedHandler(index)} name={item.name} count={item.count} />)}
+                {items.map((item,index)=><ComboboxItem key={index} selected={SelectedItems.find(x=>x.id==item.id)} clicked={()=>itemClickedHandler(index)} name={item.name} count={item.count} />)}
             </ul>
         </div>
       );
@@ -182,7 +182,7 @@ const ComboboxContainer = ({items=[],SelectedItems,setSelectedItems,direction,he
     return (
         <div  className={classes.container} style={{left: direction && direction>-1?`${-direction}px`:'0'}}>
              <ul style={{height:`${height}px`,minHeight:'300px'}}>
-                {items.map((item,index)=><RadioButtonItem selected={SelectedItem.name==item.name} clicked={()=>selectedItemHandler(index)} name={item.name} count={item.count} />)}
+                {items.map((item,index)=><RadioButtonItem key={index} selected={SelectedItem.name==item.name} clicked={()=>selectedItemHandler(index)} name={item.name} count={item.count} />)}
             </ul>
         </div>
     )
@@ -215,33 +215,13 @@ const RadioButtonItem = props => {
     )
 }
 
-const Filters=(props)=>{
+const Filters=({filters})=>{
 
 
    const main =useSelector(s=>s.main);
    const dispatch=useDispatch();
-   const [filters, setFilters] = useState([])
    
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API}/Filters/${props.depName}`)
-        .then(result=>{
-            setFilters( [...result.data.map(filter=>
-                {
-                    return {
-                        name:filter.name.toLowerCase(),
-                        id:filter.id,
-                        items:filter.facetValues,
-                        isMultiselection:filter.facetType=='TextMultiSelect'
-
-                    }
-                })])
-  
-            
-        })
-        return () => {
-            
-        }
-    }, [])
+ 
  
     return(
         <Fragment>

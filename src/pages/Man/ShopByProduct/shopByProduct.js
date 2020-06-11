@@ -1,35 +1,61 @@
 
 import React,{useEffect, useState} from 'react'
-
-import classes from './shopByProduct.module.css';
 import BreadCrumbs from '../../../Components/BreadCrumbs/breadCrumbs';
 import PageDescription from './Information/description';
 import {Pills} from './Pills/pills';
 import { Filters } from './Filter/filter';
 import Items from './Items/items';
-import { useSelector ,useDispatch} from 'react-redux';
-import { get, getAll, getAllAsync } from '../../../actions/productActions';
+import {useDispatch, useSelector} from 'react-redux';
+import {  GetAllAsync, GetAllSubMenusAsync } from '../../../actions/departmentsActions';
 import LoadMore from './LoadMore/loadMore';
+import { SetDepartment } from '../../../actions/mainActions';
+import { getAllAsync } from '../../../actions/productActions';
 
 
 const ShopByProduct= (props)=>{
     
     
     const dispatch=useDispatch();
+    const currentDep=useSelector(s=>s.main).currentDep;
     const [products, setProducts] = useState([])
-    const [currentDep, setCurrentDep] = useState('');
     const [totalProducts, setTotalProducts] = useState(0)
     const [page, setPage] = useState(0)
+    const [subMenu, setSubMenu] = useState(null);
+  
     useEffect(() => {
       
-        dispatch(getAllAsync({dep:props.match.params.depName,offset:page})).then(res=>{
-        console.log(page);
+        try{
+        dispatch(GetAllAsync()).then(res=>{
+        const departments=res.departments.data.data;
+        const dep=   departments.filter(dep=>dep.Name==props.match.params.depName)[0];
+         console.log(props.match.params.menu);
+         dispatch(SetDepartment(dep));
+        
+        dispatch(GetAllSubMenusAsync(dep.id)).then(menus=>
+            {
+                console.log(dep.Menus.filter(m=>m.Name.toLowerCase()==props.match.params.menu.toLowerCase())[0]);
+                
+        const menuId=dep.Menus.filter(m=>m.Name.toLowerCase()==props.match.params.menu.toLowerCase())[0];
+        if(!menuId) return;
+        setSubMenu(menus.menus.data.filter(menu=>menuId._id==menu.menuId)[0]);
+
+        console.log(menus.menus.data.filter(menu=>menuId._id==menu.menuId)[0]);
+        
+        dispatch(getAllAsync({dep:dep.id})).then(prod=>{ 
+        setProducts(prevState=>prod.products.data.data);
+            console.log(prod.products.data.data);
             
+        })
+
+        },err=>console.log(err));
+        
+    
+        /*
         if(products.length==0)
             {
                 setPage(0);
                 setTotalProducts(res.products.data.total);
-                setCurrentDep(props.match.params.depName);
+                dispatch(SetDepartment(dep));
                 setProducts(res.products.data.products)
                 return;
             }
@@ -41,30 +67,36 @@ const ShopByProduct= (props)=>{
         else
         {
             setPage(0);
-            setCurrentDep(props.match.params.depName);
+            dispatch(SetDepartment(dep));
             setProducts(res.products.data.products)
             setTotalProducts(res.products.data.total);
 
-        }
-    })
+        }*/
+    });
+    }catch{
+
+    }
        return () => {
            
        }
-   }, [props.match.params.depName,page])
+   }, [props.match.params.menu])
    
    const  nextPageHandler = () => {
      
        
        setPage(page+1);
    }
-
+    if(!subMenu) return <div>Loading</div>
+  
+  
+   
     return(
         <div >
             <BreadCrumbs/>
-            <PageDescription header= {`Men's ${props.match.params.depName}`}  description={'text'}/>
-            <Pills items={[]}/>
-            <Filters depName={props.match.params.depName}/>
-            <Items items={[]}/>
+            <PageDescription header= {subMenu.Header}  description={subMenu.Description}/>
+            <Pills items={subMenu.pills}/>
+            <Filters filters={subMenu.Filters}/>
+            <Items items={products}/>
             <LoadMore nextPageClick={nextPageHandler} items={products.length} total={totalProducts}/>
         </div>
     )

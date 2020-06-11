@@ -5,15 +5,15 @@ import UserAuthType from '../Components/UserAuthType/userAuthType'
 import Seprator from '../Components/Separator/separator'
 import SocialMediaButtons from '../Components/SocialMediaButtons/socialMediaButtons';
 import { useDispatch } from 'react-redux';
-import { SetNavbar, SetHeaderAndFooter } from '../../../actions/mainActions';
+import { SetHeaderAndFooter } from '../../../actions/mainActions';
 import RadioButton from '../Components/radiobutton';
 import RadioButtonGroup from '../Components/radiobuttonGroup';
 import CheckBox from '../../../Components/checkBoxes';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 import InputForm from '../Components/InputForm/inputForm';
 import { useHistory } from 'react-router-dom';
 import {SetCurrentUser} from '../../../actions/mainActions';
+import UserAPI from '../../../Backend/UserAPI';
 
 const SignUp = props =>
  {
@@ -69,8 +69,14 @@ const SignUpForm = props =>
     const onSubmit = async(data) => 
     {        
         
-        const response = await axios.post(`${process.env.REACT_APP_API}/signUp`,data);
-        if(response.data.status=='ok')
+        const response = await new UserAPI().SignUp({
+            ...data,
+            month:+data.month,
+            day:+data.day,
+            year:+data.year
+        });
+        
+        if(response.data.status=='success')
          {
             dispatch(SetCurrentUser(response.data.data));
             history.push('/man');

@@ -3,12 +3,12 @@ import classes from './signIn.module.css';
 import UserAuthType from './Components/UserAuthType/userAuthType'
 import Seprator from './Components/Separator/separator'
 import SocialMediaButtons from './Components/SocialMediaButtons/socialMediaButtons';
-import { useDispatch } from 'react-redux';
-import { SetNavbar, SetHeaderAndFooter, SetCurrentUser } from '../../actions/mainActions';
+import {useDispatch } from 'react-redux';
+import {SetHeaderAndFooter, SetCurrentUser } from '../../actions/mainActions';
 import {useForm} from 'react-hook-form';
-import Axios from 'axios';
 import InputForm from './Components/InputForm/inputForm';
 import {useHistory} from 'react-router-dom';
+import UserAPI from '../../Backend/UserAPI';
 
 const SignIn = props =>
  {
@@ -47,8 +47,12 @@ const SignInForm = props => {
     const {register,handleSubmit,formState} =useForm({mode:'onChange'});
     const onSubmit= async(data)=>
     {
-       const response = await Axios.post(`${process.env.REACT_APP_API}/signIn`,data);
-       if(response.data.status=='ok') {
+      
+       const response = await new UserAPI().Login(data);
+       if(response.data.status=='success') 
+       {
+           const user={email:response.data.data.email,password:response.data.data.password};
+           localStorage.setItem("savedUser",JSON.stringify(user));
            dispatch(SetCurrentUser(response.data.data))
            history.push('/man');
        }

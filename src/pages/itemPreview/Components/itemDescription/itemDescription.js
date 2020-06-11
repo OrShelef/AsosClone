@@ -5,27 +5,26 @@ const ItemDescription = ({item}) => {
     return (
         <div className={classes.main}>
             <div className={classes.productDetails}>
-                <h2>Product Details</h2>
+                <h2>{item.Description.Header}</h2>
 
-                <p><a href='#'>{item.itemType}</a>By<a href='#'>{item.brand}</a></p>
+                <p><a href='#'>{item.ProductType}</a> By <a href='#'>{item.Brand}</a></p>
 
                 <ul>
-                    {item.details && item.details.map(detail=><li>{detail}</li>)}
+                    {item.Description.items && item.Description.items.map(detail=><li>{detail}</li>)}
                 </ul>
             </div>
 
             <div className={classes.section2}>
                 <div>
                     <h2>Product code</h2>
-                    <p>1254748</p>
+                    <p>{item.ProductCode}</p>
                 </div>
 
                 <div>
                     <h2>Brand</h2>
-                <p>British brand Burton Menswear London combines a long heritage of tailoring with a modern take on relaxed formal and casualwear
-                     to bring an added hint of freshness to every occasion.
-                      Expect classic shirting and knitwear.
-                    <a href='#'>{item.brand}</a>
+                <p>
+                    
+                    {item.BrandDescription}
                     </p>
                 </div>
 
@@ -33,8 +32,8 @@ const ItemDescription = ({item}) => {
 
             <div className={classes.section3}>
                 <div>
-                    <h2>Look after me</h2>
-                    <p>Wipe clean with a damp cloth or sponge</p>
+                <h2>{item.SizeAndFit.Header}</h2>
+                    <p>{item.SizeAndFit.Data}</p>
                 </div>
                 <div>
                     <h2>About Me</h2>

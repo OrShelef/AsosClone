@@ -8,6 +8,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import axios from 'axios';
 import { SetCurrentUser,SetLoading } from '../../../actions/mainActions';
 import Loader from '../../../Components/Loader/Loader';
+import UserAPI from '../../../Backend/UserAPI';
 const ContactPrefrences = (props) => 
 {  
     const main=useSelector(state=>state.main);
@@ -37,13 +38,11 @@ const ContactPrefrences = (props) =>
     const onSubmit=async (data)=>
     {
         if(!main.currentUser.contactPrefrences) main.currentUser.contactPrefrences={};
-          
-            
+                     
             main.currentUser.contactPrefrences=data;
-           
-            const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,main.currentUser);
-            console.log(response.data.status);
-            
+                     
+            const response = await  new UserAPI().Update(main.currentUser);
+
             if(response.data.status=='ok')
             {
                dispatch(SetCurrentUser(response.data.data));

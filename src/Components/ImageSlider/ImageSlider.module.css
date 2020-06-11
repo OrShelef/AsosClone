@@ -22,6 +22,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 2rem;
+    z-index: 30;
 }
 
 .main img{
@@ -30,12 +31,12 @@
 }
 
 .slideLeft{
-    animation: slide_left .3s ease-in-out;
+    animation: slide_left .7s cubic-bezier(.09,.74,.38,.99);
    
   
 }
 .slideRight{
-    animation: slide_right .3s ease-in-out;
+    animation: slide_right .7s cubic-bezier(.09,.74,.38,.99);
    
     
 }

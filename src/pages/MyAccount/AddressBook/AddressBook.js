@@ -9,7 +9,8 @@ import axios from 'axios';
 import { SetCurrentUser, SetPopup, SetToast } from '../../../actions/mainActions';
 import {Countries} from '../../../assets/countries';
 import CheckBox from '../../../Components/checkBoxes';
-import { Link ,useHistory} from 'react-router-dom';
+import UserAPI  from '../../../Backend/UserAPI';
+import {useHistory} from 'react-router-dom';
 
 const AddressBook = (props) => {
    
@@ -37,8 +38,8 @@ const AddressBook = (props) => {
         
           let copy=JSON.parse(JSON.stringify(main.currentUser));
           copy.addresses.splice(copy.addresses[index],1);
-          const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,copy);          
-          if(response.data.status=='ok')
+          const response = await new UserAPI().Update(copy);        
+          if(response.data.status=='success')
           {
             dispatch(SetCurrentUser(copy));
             OpenToast();
@@ -149,11 +150,10 @@ const AddAddress=(props)=>
             console.log(main.currentUser);
             
             main.currentUser.addresses.push(data);
+          
+            const response = await new UserAPI().Update(main.currentUser);
            
-            const response = await axios.post(`${process.env.REACT_APP_API}/updateDetails`,main.currentUser);
-            console.log(response.data.status);
-            
-            if(response.data.status=='ok')
+            if(response.data.status=='success')
             {
                dispatch(SetCurrentUser(response.data.data));
                 history.push('/MyAccount/AddressBook');

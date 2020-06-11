@@ -7,9 +7,9 @@ const RadioButton = ({value,name,selected,onChange,register}) =>
    
    
     return (
-        <div onClick={()=>onChange(value)} className={classes.main}>
+        <div id={classes.radio} onClick={()=>onChange(value)} className={classes.main}>
             <input ref={register} value={value} onChange={(e)=>{}} checked={selected==value} name={name} type="radio"/>
-            <div>
+            <div >
                 <span/>
             </div>
         <label>{value}</label>

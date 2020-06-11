@@ -77,3 +77,11 @@ export const SetFilterSideBar = value=>
     }
 }
 
+
+export const SetDepartment = value=> 
+{
+    return {
+        type:types.MAIN_SET_CURRENT_DEP,
+        payload:value
+    }
+}

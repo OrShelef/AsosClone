@@ -16,7 +16,7 @@ export const getAll=(products)=>{
     }
 }
 
-export const getAllAsync= (params={dep:'Sale',offset:0,limit:72})=>{
+export const getAllAsync= (params={dep:'9862',offset:0,limit:72})=>{
 
     return async (dispatch)=>
         {

@@ -17,16 +17,16 @@ const Item =({product}) =>  {
 
  
   return (  
-        <Link to={`${url}/${product.id}`} className={classes.main}>
+        <Link to={`${url}/${product.Id}`} className={classes.main}>
             <div className={classes.image}>
                
-                <Image src={product.images[0].url}  />
+                <Image src={product.Image}  />
                 <i onClick={onFavClick} className={`fas fa-heart ${isFav && classes.fillIcon}`}></i>
                 <i  className={`fas fa-heart ${isFav && classes.fillIcon} `}></i>
                 <i  className={`fas fa-heart ${isFav && classes.fillIcon} ${classes.heart_bg}`}></i>
             </div>
-            <p>{product.name}</p>
-            <h2>{product.price.current.text}</h2>
+            <p>{product.Name}</p>
+            <h2>{product.Prices.Current.Text}</h2>
         </Link>
   );
 };

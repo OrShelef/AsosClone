@@ -9,6 +9,7 @@ import { getByIdAsync } from '../../actions/productActions';
 
 const ItemPreview = (props) => {
    const dispatch=useDispatch();
+   const main=useSelector(s=>s.main);
    const sizes=['Please Select','XS','S','M','L','XL','XXL']
    const [isHover, setIsHover] = useState(false);
    const [product, setProduct] = useState(null);
@@ -16,11 +17,12 @@ const ItemPreview = (props) => {
    useEffect(() => {
       
        
-       dispatch(getByIdAsync({id:props.match.params.id,dep:props.match.params.depName}))
+       dispatch(getByIdAsync({id:props.match.params.id,dep:main.currentDep.id}))
        .then(res=>{
          
+           console.log(res);
            
-        setProduct(res.product.data[0])
+        setProduct(res.product.data.data)
        });
        return () => {
            
@@ -33,10 +35,10 @@ const ItemPreview = (props) => {
             <div className={classes.container}>
             <ImagePreview product={product}/>
             <div className={classes.product_info}>
-                <h2>{product.name}</h2>
-                <h1>{product.price.current.text}</h1>
+                <h2>{product.Name}</h2>
+                <h1>{product.Prices.Current.Text}</h1>
                 <a href='#'>Delivery and returns info</a>
-                <p>COLOUR: {product.colour}</p>
+                <p>COLOUR: <span className={classes.color}>{product.Color}</span></p>
                 <div className={classes.itemDetails}>
                     <span className={classes.sizes}>
                        <p>SIZE: </p> <span><i className="fas fa-tshirt"></i><a>	Find your Fit Assistant size</a></span>

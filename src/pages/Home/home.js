@@ -17,12 +17,26 @@ import Toast from '../../Components/Toast/Toast';
 import SideBar from '../../Components/Mobile/SideBar/SideBar';
 import { SetIsOpen } from '../../actions/dropdownActions';
 import FilterSideBar from '../../Components/Mobile/FilterSideBar/filterSideBar';
+import Axios from 'axios';
+import {SetCurrentUser} from '../../actions/mainActions';
 
 
 const Home=(props)=> 
 {
     
     useEffect(() => {
+        async function  getSavedUser() {
+            if(localStorage.getItem("savedUser"))
+            {
+                
+                const response = await Axios.post(`${process.env.REACT_APP_API}/User/signIn`,JSON.parse(localStorage.getItem("savedUser")));
+                if(response.data.status=='success') 
+                {
+                    dispatch(SetCurrentUser(response.data.data))
+                }
+            }
+            }
+       getSavedUser();
       let  unlisten = props.history.listen((location, action) => 
       {
           dispatch(SetLoading(true));
@@ -68,9 +82,9 @@ const Home=(props)=>
                         <LandingPage/>
                     </Route>
 
-                    <Route  path="/man/shopByProduct/:depName/:id" render={props=><ItemPreview {...props}/>}/>              
+                    <Route  path="/man/shopByProduct/:depName/:menu/:id" render={props=><ItemPreview {...props}/>}/>              
 
-                    <Route  path="/man/shopByProduct/:depName" render={props=><ShopByProduct {...props}/>}/>              
+                    <Route  path="/man/shopByProduct/:depName/:menu" render={props=><ShopByProduct {...props}/>}/>              
       
                     <Route path="/man">              
                         <Man/>
